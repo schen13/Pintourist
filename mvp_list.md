@@ -1,4 +1,6 @@
-Pintourist, a Pinterest clone, is a social media application where users can discover destination/scenery-themed pictures and websites to plan their next vacation.
+# MVP List
+
+Pintourist, a Pinterest clone, is a social media application where users can discover destination/scenery-themed pictures and websites to plan their next vacation. The following features will make a minimum viable product:
 
 1. New account creation, login, and demo login
 * Users can sign up, log in, and log out

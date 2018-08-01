@@ -1,8 +1,10 @@
-# users
+# `users`
 | column name       |  data type  |  details                      |
 | ----------------- |:-----------:| ----------------------------- |
 | `id`              | integer     | not null, primary key         |
 | `username`        | string      | not null, indexed             |
+| `fname`           | string      | not null                      |
+| `lname`           | string      | not null                      |
 | `email`           | string      | not null, indexed, unique     |
 | `img_url`         | string      | optional                      |
 | `password_digest` | string      | not null                      |
@@ -13,7 +15,7 @@
 * index on `:username, unique: true`
 * index on `:session_token, unique: true`
 
-# boards
+# `boards`
 
 | column name     |  data type  |  details                       |
 | --------------- |:-----------:| ------------------------------ |
@@ -22,7 +24,7 @@
 | `title`         | string      | not null                       |
 | `description`   | string      | optional                       |
 | `category`      | string      | optional                       |
-| `is_secret`     | boolean     | true or false                  |
+| `is_secret`     | boolean     | not null                       |
 | `collab_id`     | integer     | optional, foreign key          |
 | `created_at`    | datetime    | not null                       |
 | `updated_at`    | datetime    | not null                       |
@@ -31,7 +33,7 @@
 * `collab_id` references `users`
 * index on `:user_id, unique: true`
 
-# pins
+# `pins`
 
 | column name     |  data type  |  details                       |
 | --------------- |:-----------:| ------------------------------ |
@@ -46,7 +48,7 @@
 * `user_id` references `users`
 * index on `:user_id, unique: true`
 
-# follows
+# `follows`
 
 | column name     |  data type  |  details                       |
 | --------------- |:-----------:| ------------------------------ |
@@ -60,7 +62,7 @@
 * `follower_id` references `users`
 * index on `[:follower_id, :followee_id], unique: true`
 
-# pinnings
+# `pinnings`
 
 | column name     |  data type  |  details                       |
 | --------------- |:-----------:| ------------------------------ |
