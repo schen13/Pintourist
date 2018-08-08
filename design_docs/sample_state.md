@@ -7,13 +7,7 @@
         username: "schen13",
         fname: "Steven",
         lname: "Chen",
-        email: "steven.chen313@gmail.com",
-        imgUrl: "/app/assets/images/steven.png",
-        boardIds: [1, 4],
-        follows: {
-          followerIds: [2, 4, 6],
-          followeeIds: [2, 3, 5]
-        }
+        email: "steven.chen313@gmail.com"
       }
     },
 
@@ -22,10 +16,7 @@
         id: 1,
         userId: 1,
         title: "Paris",
-        description: "Visit the City of Lights",
-        category: "Travel",
-        isSecret: false,
-        pinIds: [1, 2]
+        description: "Visit the City of Lights"
       }
     },
 
@@ -35,8 +26,6 @@
         userId: 1,
         url: "https://www.louvre.fr/en",
         description: "Louvre Lights",
-        imgUrl: "https://pixabay.com/en/louvre-pyramid-paris-tourism-102840/",
-        boardIds: [1, 4]
       }
     },
 
@@ -64,20 +53,18 @@
 
   ui: {
     loading: true/false,
-    loginModal: true/false
+    loginModal: true/false,
+    pinModal: true/false
   },
 
   errors: {
     login: ["Incorrect username/password combination"],
-    pins: ["Pin url cannot be blank"],
-    boards: ["Board title cannot be blank"]
+    boards: ["Board title cannot be blank"],
+    pins: ["Pin url cannot be blank"]
   },
 
   session: {
-    currentUser: {
-      id: 1
-    }
+    id: 1
   }
 }
-
 ```
