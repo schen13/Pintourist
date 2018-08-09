@@ -8,8 +8,8 @@ import SignupFormContainer from './session/signup_form_container';
 const App = () => (
   <div>
     <ProtectedRoute path="/" component={NavbarContainer} />
-    <AuthRoute path="/login" component={LoginFormContainer} />
-    <AuthRoute path="/signup" component={SignupFormContainer} />
+    <AuthRoute exact path="/login" component={LoginFormContainer} />
+    <AuthRoute exact path="/signup" component={SignupFormContainer} />
   </div>
 );
 

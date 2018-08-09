@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,25 +43,21 @@ class SessionForm extends React.Component {
         </h3>
         {this.displayErrors()}
         <form className="session-form" onSubmit={this.handleSubmit}>
-          <label>
-            Username:
-            <input
-              className="session-input"
-              type="text"
-              value={this.state.username}
-              onChange={this.update('username')}
-            />
-          </label>
+          <input
+            className="session-input"
+            type="text"
+            value={this.state.username}
+            placeholder="Username"
+            onChange={this.update('username')}
+          />
           <br />
-          <label>
-            Password:
-            <input
-              className="session-input"
-              type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-            />
-          </label>
+          <input
+            className="session-input"
+            type="password"
+            value={this.state.password}
+            placeholder="Password"
+            onChange={this.update('password')}
+          />
           <br />
           <input className="session-submit" type="submit" value={formType} />
           <button className="demo-login" onClick={this.loginDemo}>
@@ -73,4 +69,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default withRouter(SessionForm);
+export default withRouter(LoginForm);
