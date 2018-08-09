@@ -2,16 +2,17 @@ import LoginForm from './login_form';
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
-import { Link } from 'react-router-dom';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ errors }) => ({
   errors: errors.session,
-  formType: 'Login',
-  redirectLink: <Link to="/signup">sign up instead!</Link>
+  formType: 'Login'
 });
 
 const mapDispatchToProps = dispatch => ({
   processForm: user => dispatch(login(user)),
+  otherForm: <div onClick={() => dispatch(openModal('signup'))}>Sign Up</div>,
+  closeModal: () => dispatch(closeModal()),
   login: user => dispatch(login(user))
 });
 

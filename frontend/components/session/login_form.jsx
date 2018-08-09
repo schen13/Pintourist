@@ -18,12 +18,14 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.props.processForm(this.state).then(this.props.closeModal);
   }
 
   loginDemo(e) {
     e.preventDefault();
-    this.props.login({ username: 'demo_user', password: 'password' });
+    this.props
+      .login({ username: 'demo_user', password: 'password' })
+      .then(this.props.closeModal());
   }
 
   displayErrors() {
@@ -35,12 +37,12 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const { formType, redirectLink } = this.props;
+    const { formType, otherForm } = this.props;
     return (
       <div className="session-form-container">
-        <h3>
-          {formType} or {redirectLink}
-        </h3>
+        <img src={window.logoURL} />
+        <h3>Log in to see the sights</h3>
+        <h4>The world is at your fingertips</h4>
         {this.displayErrors()}
         <form className="session-form" onSubmit={this.handleSubmit}>
           <input
@@ -60,10 +62,12 @@ class LoginForm extends React.Component {
           />
           <br />
           <input className="session-submit" type="submit" value={formType} />
+          <br />
           <button className="demo-login" onClick={this.loginDemo}>
             Demo Login
           </button>
         </form>
+        <div className="other-form">{otherForm}</div>
       </div>
     );
   }
