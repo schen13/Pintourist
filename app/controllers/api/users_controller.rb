@@ -5,7 +5,22 @@ class Api::UsersController < ApplicationController
       login!(@user)
       render 'api/users/show'
     else
-      render json: @user.errors.full_messages, status: 422
+      errors = [];
+      @user.errors.full_messages.each do |error|
+        if error.downcase.include?("fname")
+          errors.push({ fname: error.sub('Fname', "First name").concat(".") })
+        elsif error.downcase.include?("lname")
+          errors.push({ lname: error.sub('Lname', "Last name").concat(".") })
+        elsif error.downcase.include?("email")
+          errors.push({ email: error.concat(".") })
+        elsif error.downcase.include?("username")
+          errors.push({ username: error.concat(".") })
+        elsif error.downcase.include?("password")
+          errors.push({ password: error.concat(".") })
+        end
+      end
+      render json: errors, status: 422
+      # render json: @user.errors.full_messages, status: 422
     end
   end
 

@@ -8,14 +8,18 @@ export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS';
 export const signup = user => dispatch => (
   SessionAPIUtil.signup(user).then(
     res => dispatch(receiveCurrentUser(res)),
-    error => dispatch(receiveSessionErrors(error.responseJSON))
+    error => {
+      return dispatch(receiveSessionErrors(error.responseJSON));
+    }
   )
 );
 
 export const login = user => dispatch => (
   SessionAPIUtil.login(user).then(
     res => dispatch(receiveCurrentUser(res)),
-    error => dispatch(receiveSessionErrors(error.responseJSON))
+    error => (
+      dispatch(receiveSessionErrors(error.responseJSON))
+    )
   )
 );
 

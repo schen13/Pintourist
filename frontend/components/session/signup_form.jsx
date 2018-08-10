@@ -4,11 +4,11 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      fname: '',
+      lname: '',
       username: '',
       password: '',
-      email: '',
-      fname: '',
-      lname: ''
+      email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemo = this.loginDemo.bind(this);
@@ -21,6 +21,7 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state).then(this.props.closeModal);
+    this.setState({ password: '' });
   }
 
   loginDemo(e) {
@@ -30,62 +31,59 @@ class SignupForm extends React.Component {
       .then(this.props.closeModal);
   }
 
-  displayErrors() {
-    return (
-      <ul className="session-errors">
-        {this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-    );
-  }
-
   render() {
-    const { formType, otherForm, clearErrors } = this.props;
+    const { errors, formType, otherForm, clearErrors } = this.props;
+    const newErrors = {};
+    errors.forEach(error => {
+      newErrors[Object.keys(error).shift()] = Object.values(error).shift();
+    });
     return (
       <div className="session-form-container">
         <img src={window.logoURL} alt="logo" />
         <h3>Welcome to Pintourist</h3>
         <h4>Find new places to visit</h4>
-        {this.displayErrors()}
         <form className="session-form" onSubmit={this.handleSubmit}>
           <input
-            className="session-input"
+            className={`session-input${newErrors.fname ? `-error` : ``}`}
             type="text"
             value={this.state.fname}
             placeholder="First Name"
             onChange={this.update('fname')}
           />
-          <br />
+          <div className={`session-error${newErrors.fname ? `` : `-none`}`}>{newErrors.fname}</div>
           <input
-            className="session-input"
+            className={`session-input${newErrors.lname ? `-error` : ``}`}
             type="text"
             value={this.state.lname}
             placeholder="Last Name"
             onChange={this.update('lname')}
           />
-          <br />
+          <div className={`session-error${newErrors.lname ? `` : `-none`}`}>{newErrors.lname}</div>
           <input
-            className="session-input"
+            className={`session-input${newErrors.email ? `-error` : ``}`}
             type="text"
             value={this.state.email}
             placeholder="Email"
             onChange={this.update('email')}
           />
-          <br />
+          <div className={`session-error${newErrors.email ? `` : `-none`}`}>{newErrors.email}</div>
           <input
-            className="session-input"
+            className={`session-input${newErrors.username ? `-error` : ``}`}
             type="text"
             value={this.state.username}
             placeholder="Username"
             onChange={this.update('username')}
           />
-          <br />
+          <div className={`session-error${newErrors.username ? `` : `-none`}`}>{newErrors.username}</div>
           <input
-            className="session-input"
+            className={`session-input${newErrors.password ? `-error` : ``}`}
             type="password"
             value={this.state.password}
             placeholder="Password"
             onChange={this.update('password')}
           />
+          <br />
+          <div className={`session-error${newErrors.password ? `` : `-none`}`}>{newErrors.password}</div>
           <br />
           <input className="session-submit" type="submit" value={formType} />
           <br />

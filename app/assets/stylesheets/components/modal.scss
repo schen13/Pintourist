@@ -1,3 +1,5 @@
+$input-width: 275px;
+
 .modal-background {
   position: fixed;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
@@ -59,7 +61,7 @@
   box-sizing: border-box;
   padding: 10px;
   margin-top: 10px;
-  width: 275px;
+  width: $input-width;
   text-align: left;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -68,12 +70,27 @@
   }
 }
 
+.session-input-error {
+  border-radius: 5px;
+  border: 1px solid #8e8e8e;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 10px;
+  width: $input-width;
+  text-align: left;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 6px 2px rgba(255, 0, 0, 0.7);
+  &:focus {
+    box-shadow: 0 0 6px 2px rgba(81, 203, 238, 1);
+  }
+}
+
 .session-submit,
 .demo-login {
-  width: 275px;
+  width: $input-width;
   height: 50px;
   border-radius: 5px;
-  margin-top: 15px;
   background-color: $light-blue;
   color: white;
   font-weight: 700;
@@ -81,7 +98,7 @@
 }
 
 .demo-login {
-  margin-bottom: 15px;
+  margin: 15px 0px;
 }
 
 .other-form {
@@ -99,7 +116,18 @@
   opacity: 0.8;
 }
 
-.session-errors {
-  list-style: none;
-  padding: 0;
+.session-error {
+  font-size: 12px;
+  width: $input-width;
+  margin: 0 auto;
+  padding-top: 5px;
+  padding-left: 10px;
+  text-align: left;
+  color: red;
+}
+
+.session-error-none {
+  width: 0px;
+  height: 0px;
+  display: none;
 }

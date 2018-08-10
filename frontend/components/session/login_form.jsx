@@ -19,6 +19,7 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state).then(this.props.closeModal);
+    this.setState({ password: '' });
   }
 
   loginDemo(e) {
@@ -28,30 +29,16 @@ class LoginForm extends React.Component {
       .then(this.props.closeModal());
   }
 
-  // changeForms() {
-  //   this.props.clearErrors();
-  //   this.props.history.push(this.props.otherFormType);
-  // }
-
-  displayErrors() {
-    return (
-      <ul className="session-errors">
-        {this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-    );
-  }
-
   render() {
-    const { formType, otherForm, clearErrors } = this.props;
+    const { errors, formType, otherForm, clearErrors } = this.props;
     return (
       <div className="session-form-container">
         <img src={window.logoURL} alt="logo" />
         <h3>Log in to see the sights</h3>
         <h4>The world is at your fingertips</h4>
-        {this.displayErrors()}
         <form className="session-form" onSubmit={this.handleSubmit}>
           <input
-            className="session-input"
+            className={`session-input${errors.length > 0 ? `-error` : ``}`}
             type="text"
             value={this.state.username}
             placeholder="Username"
@@ -59,12 +46,14 @@ class LoginForm extends React.Component {
           />
           <br />
           <input
-            className="session-input"
+            className={`session-input${errors.length > 0 ? `-error` : ``}`}
             type="password"
             value={this.state.password}
             placeholder="Password"
             onChange={this.update('password')}
           />
+          <br />
+          <div className={`session-error${errors.length > 0 ? `` : `-none`}`}>{errors}</div>
           <br />
           <input className="session-submit" type="submit" value={formType} />
           <br />
