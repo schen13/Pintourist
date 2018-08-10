@@ -1,15 +1,33 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class LoginForm extends React.Component {
+class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
+    if (this.props.path === '/signup') {
+      this.state = {
+        username: '',
+        password: '',
+        email: '',
+        fname: '',
+        lname: ''
+      };
+    } else {
+      this.state = {
+        username: '',
+        password: ''
+      };
+    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemo = this.loginDemo.bind(this);
+    this.changeForms = this.changeForms.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.loggedIn) {
+      this.props.history.push('/');
+    }
   }
 
   update(field) {
@@ -28,10 +46,10 @@ class LoginForm extends React.Component {
       .then(this.props.closeModal());
   }
 
-  // changeForms() {
-  //   this.props.clearErrors();
-  //   this.props.history.push(this.props.otherFormType);
-  // }
+  changeForms() {
+    this.props.clearErrors();
+    this.props.history.push(this.props.otherPath);
+  }
 
   displayErrors() {
     return (
@@ -42,12 +60,11 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const { formType, otherForm, clearErrors } = this.props;
+    const { formTitle, buttonText, otherForm } = this.props;
     return (
       <div className="session-form-container">
         <img src={window.logoURL} alt="logo" />
-        <h3>Log in to see the sights</h3>
-        <h4>The world is at your fingertips</h4>
+        {formTitle}
         {this.displayErrors()}
         <form className="session-form" onSubmit={this.handleSubmit}>
           <input
@@ -66,16 +83,16 @@ class LoginForm extends React.Component {
             onChange={this.update('password')}
           />
           <br />
-          <input className="session-submit" type="submit" value={formType} />
+          <input className="session-submit" type="submit">{buttonText}</input>
           <br />
           <button className="demo-login" onClick={this.loginDemo}>
             Demo Login
           </button>
         </form>
-        <div onClick={clearErrors}>{otherForm}</div>
+        <div onClick={this.changeForms}>{otherForm}</div>
       </div>
     );
   }
 }
 
-export default withRouter(LoginForm);
+export default withRouter(SessionForm);

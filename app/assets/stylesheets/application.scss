@@ -12,8 +12,6 @@
  *
  *= require_self
  */
-@import 'components/navbar.scss';
-@import 'components/modal.scss';
-@import 'base/reset.scss';
-@import 'base/colors.scss';
-@import 'base/layout.scss';
+@import 'base/*';
+
+@import 'components/*';

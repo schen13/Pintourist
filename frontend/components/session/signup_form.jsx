@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
@@ -40,10 +39,10 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const { formType, otherForm } = this.props;
+    const { formType, otherForm, clearErrors } = this.props;
     return (
       <div className="session-form-container">
-        <img src={window.logoURL} />
+        <img src={window.logoURL} alt="logo" />
         <h3>Welcome to Pintourist</h3>
         <h4>Find new places to visit</h4>
         {this.displayErrors()}
@@ -94,7 +93,7 @@ class SignupForm extends React.Component {
             Demo Login
           </button>
         </form>
-        {otherForm}
+        <div onClick={clearErrors}>{otherForm}</div>
       </div>
     );
   }

@@ -1,12 +1,13 @@
 import LoginForm from './login_form';
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { login, removeSessionErrors } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ errors }) => ({
   errors: errors.session,
-  formType: 'Login'
+  formType: 'Login',
+  otherFormType: '/signup'
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -17,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
     </div>
   ),
   closeModal: () => dispatch(closeModal()),
-  login: user => dispatch(login(user))
+  login: user => dispatch(login(user)),
+  clearErrors: () => dispatch(removeSessionErrors())
 });
 
 export default connect(

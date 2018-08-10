@@ -2,6 +2,7 @@
   position: fixed;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     image-url('santorini.jpg');
+  // https://pixabay.com/en/oia-santorini-village-greece-416136/
   background-size: 100% auto;
   background-repeat: repeat-y;
   top: 0;
@@ -12,6 +13,8 @@
   -webkit-animation: 100s scroll infinite linear;
   animation: 100s scroll infinite linear;
 }
+
+// Inspired by https://codepen.io/ScottMarshall/pen/vAtgB
 
 @-webkit-keyframes scroll {
   100% {
@@ -71,7 +74,7 @@
   height: 50px;
   border-radius: 5px;
   margin-top: 15px;
-  background-color: #00a6ff;
+  background-color: $light-blue;
   color: white;
   font-weight: 700;
   cursor: pointer;
@@ -84,7 +87,7 @@
 .other-form {
   padding: 20px;
   border-radius: 0 0 10px 10px;
-  background-color: #e2e2e2;
+  background-color: $light-gray;
   text-align: center;
   font-weight: 700;
   cursor: pointer;

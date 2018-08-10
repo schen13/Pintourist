@@ -58,7 +58,7 @@
   },
 
   errors: {
-    login: ["Incorrect username/password combination"],
+    session: ["Incorrect username/password combination"],
     boards: ["Board title cannot be blank"],
     pins: ["Pin url cannot be blank"]
   },

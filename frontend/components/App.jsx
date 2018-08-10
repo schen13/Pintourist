@@ -1,17 +1,14 @@
 import React from 'react';
 import NavbarContainer from './navbar/navbar_container';
-import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import LoginFormContainer from './session/login_form_container';
-import SignupFormContainer from './session/signup_form_container';
 import SignupModal from './modal/signup_modal';
+import ProfileContainer from './profile/profile_container';
 
 const App = () => (
   <div>
-    <SignupModal />
+    <AuthRoute path="/" component={SignupModal} />
     <ProtectedRoute path="/" component={NavbarContainer} />
-    {/* <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
-    {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
+    <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
   </div>
 );
 

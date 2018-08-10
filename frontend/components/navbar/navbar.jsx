@@ -11,7 +11,7 @@ class Navbar extends React.Component {
       <header className="nav-bar">
         <nav className="left-nav">
           <Link to="/">
-            <img src={window.logoURL} />
+            <img src={window.logoURL} alt="logo" />
           </Link>
         </nav>
         <nav className="right-nav">
@@ -20,10 +20,16 @@ class Navbar extends React.Component {
               <Link to="/">Home</Link>
             </li>
             <li className="nav-profile">
-              <Link to={`/${currentUser.username}`}>{currentUser.fname}</Link>
+              {/* <Link to={`/${currentUser.username}`}>{currentUser.fname}</Link> */}
+              <Link to={`/users/${currentUser.id}`}>{currentUser.fname}</Link>
             </li>
-            <li className="github-link">
-              <a href="https://github.com/schen13/Pintourist">Github</a>
+            <li>
+              <a
+                className="github-link"
+                href="https://github.com/schen13/Pintourist"
+              >
+                <i className="fab fa-github" />
+              </a>
             </li>
             <li className="logout-container">
               <button className="logout" onClick={logout}>
