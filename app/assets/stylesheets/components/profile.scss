@@ -1,5 +1,6 @@
 .profile-container {
-  margin-top: 64px;
+  margin-top: 75px;
+  margin-bottom: 10px;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -8,16 +9,17 @@
 }
 
 .user-info-container {
-  width: 800px;
+  width: 700px;
   margin: 0 auto;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
   .user-info {
-    width: 600px;
+    width: 450px;
     height: 120px;
     padding: 5px 10px;
+    font-size: 28px;
   }
   .profile-pic {
     img {
@@ -34,7 +36,7 @@
   display: flex;
   flex-flow: column;
   .tabs {
-    width: 800px;
+    width: 700px;
     margin: auto;
     display: flex;
     flex-flow: row;
