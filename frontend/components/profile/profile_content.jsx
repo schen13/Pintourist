@@ -1,5 +1,11 @@
 import React from 'react';
-
-const ProfileContent = props => <div>{props.content}</div>;
+import BoardIndexContainer from '../board/board_index_container';
+const ProfileContent = props => {
+  return (
+    <div className="profile-content">
+      <BoardIndexContainer boards={props.content} />
+    </div>
+  );
+};
 
 export default ProfileContent;

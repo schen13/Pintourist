@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
 import { fetchDesiredUser } from '../../actions/user_actions';
 import Profile from './profile';
+import { selectBoardsForUser } from '../../reducers/selectors';
 
-const mapStateToProps = ({ entities: { users }, usernameMapping }, ownProps) => {
+const mapStateToProps = ({ entities: { users, boards }, usernameMapping }, ownProps) => {
+  const userId = usernameMapping[ownProps.match.params.username];
   return {
-    user: users[usernameMapping[ownProps.match.params.username]]
+    user: users[userId],
+    boards: selectBoardsForUser(boards, userId)
   };
 };
 

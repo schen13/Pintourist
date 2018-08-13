@@ -1,6 +1,6 @@
 $input-width: 275px;
 
-.modal-background {
+.signup-modal-background {
   position: fixed;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     image-url('santorini.jpg');
@@ -47,7 +47,7 @@ $input-width: 275px;
   }
   h3 {
     margin: 10px auto;
-    font-size: 24px;
+    font-size: 28px;
   }
   h4 {
     margin: 0px auto 20px auto;
@@ -55,9 +55,10 @@ $input-width: 275px;
   }
 }
 
-input[class^="session-input"] {
+input[class^="session-input"],
+textarea {
   border-radius: 5px;
-  border: 1px solid #8e8e8e;
+  border: 1px solid $gray;
   box-sizing: border-box;
   padding: 10px;
   margin-top: 10px;
@@ -118,4 +119,109 @@ input[class^="session-input"] {
   width: 0px;
   height: 0px;
   display: none;
+}
+
+.board-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.board-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+
+  background-color: white;
+  border-radius: 10px;
+  font-family: HelveticaNeue;
+  font-size: 16px;
+
+  .board-form-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    h5 {
+      margin: 0;
+      padding: 10px;
+      font-size: 20px;
+    }
+    i {
+      font-size: 20px;
+      padding: 10px;
+    }
+  }
+}
+
+.board-form-container,
+.board-form,
+.board-form-footer {
+  width: 600px;
+}
+
+.board-form {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  span {
+    border-top: 1px solid $light-gray;
+    width: 100%;
+    padding: 16px;
+    .input-label {
+      width: 115px;
+      text-align: left;
+      vertical-align: middle;
+      padding: 0 10px;
+      margin: 0;
+    }
+    textarea {
+      resize: none;
+    }
+    input, textarea {
+      margin: 10px;
+      width: 528px;
+    }
+  }
+  .board-form-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid $light-gray;
+    padding: 16px;
+    button, input {
+      padding: 10px;
+      margin: 0px 10px;
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+    .cancel-form {
+      background-color: $light-gray;
+      color: black;
+    }
+    .board-submit {
+      background-color: $light-blue;
+      color: white;
+    }
+  }
+  .board-error {
+    font-size: 12px;
+    margin: 0 auto;
+    padding-top: 5px;
+    padding-left: 10px;
+    text-align: left;
+    color: red;
+  }
+
+  .board-error-none {
+    width: 0px;
+    height: 0px;
+    display: none;
+  }
 }

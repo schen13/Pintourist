@@ -13,12 +13,12 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { user } = this.props;
+    const { user, boards } = this.props;
     if (!user) return <div>Loading...</div>;
     return (
       <div className="profile-container">
         <UserInfo user={user} />
-        <ProfileTabs user={user} />
+        <ProfileTabs user={user} boards={boards} />
       </div>
     );
   }

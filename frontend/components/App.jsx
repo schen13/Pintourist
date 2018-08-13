@@ -3,9 +3,11 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignupModal from './modal/signup_modal';
 import NavbarContainer from './navbar/navbar_container';
 import ProfileContainer from './profile/profile_container';
+import BoardModal from './modal/board_modal';
 
 const App = () => (
   <div className="webpage">
+    <BoardModal />
     <AuthRoute path="/" component={SignupModal} />
     <ProtectedRoute path="/" component={NavbarContainer} />
     <ProtectedRoute path="/:username" component={ProfileContainer} />

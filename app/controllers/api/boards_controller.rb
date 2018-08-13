@@ -23,7 +23,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def index
-    @boards = current_user.boards
+    @boards = Board.all
     render 'api/boards/index'
   end
 

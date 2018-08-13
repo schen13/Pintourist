@@ -1,6 +1,6 @@
 import { RECEIVE_DESIRED_USER } from '../actions/modal_actions';
-import { merge } from 'lodash';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { merge } from 'lodash';
 
 export default (state = {}, action) => {
   Object.freeze(state);

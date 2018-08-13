@@ -57,3 +57,21 @@
     }
   }
 }
+
+.profile-index-container {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px;
+  .board-modal-container,
+  .board-index-item {
+    width: 285px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    &:hover {
+      background-color: $light-gray;
+      cursor: pointer;
+    }
+  }
+}

@@ -16,7 +16,7 @@ const SignupModal = ({ signupModal }) => {
     default:
       return null;
   }
-  return <div className="modal-background">{component}</div>;
+  return <div className="signup-modal-background">{component}</div>;
 };
 
 const mapStateToProps = state => ({
