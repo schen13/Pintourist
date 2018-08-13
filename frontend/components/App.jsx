@@ -1,14 +1,14 @@
 import React from 'react';
-import NavbarContainer from './navbar/navbar_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignupModal from './modal/signup_modal';
+import NavbarContainer from './navbar/navbar_container';
 import ProfileContainer from './profile/profile_container';
 
 const App = () => (
-  <div>
+  <div className="webpage">
     <AuthRoute path="/" component={SignupModal} />
     <ProtectedRoute path="/" component={NavbarContainer} />
-    <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
+    <ProtectedRoute path="/:username" component={ProfileContainer} />
   </div>
 );
 

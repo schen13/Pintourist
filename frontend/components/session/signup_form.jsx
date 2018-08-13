@@ -30,7 +30,7 @@ class SignupForm extends React.Component {
       .login({ username: 'demo_user', password: 'password' })
       .then(this.props.closeModal);
   }
-
+  // Refactor: iterate over keys 
   render() {
     const { errors, formType, otherForm, clearErrors } = this.props;
     const newErrors = {};

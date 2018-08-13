@@ -1,5 +1,7 @@
 import React from 'react';
-import UserInfo from './profile';
+import { withRouter } from 'react-router-dom';
+import UserInfo from './user_info';
+import ProfileTabs from './profile_tabs';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -11,14 +13,15 @@ class Profile extends React.Component {
   }
 
   render() {
-    if (!user) return <div>Loading...</div>;
     const { user } = this.props;
+    if (!user) return <div>Loading...</div>;
     return (
       <div className="profile-container">
         <UserInfo user={user} />
+        <ProfileTabs user={user} />
       </div>
     );
   }
 }
 
-export default Profile;
+export default withRouter(Profile);

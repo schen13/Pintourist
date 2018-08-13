@@ -20,8 +20,7 @@ class Navbar extends React.Component {
               <Link to="/">Home</Link>
             </li>
             <li className="nav-profile">
-              {/* <Link to={`/${currentUser.username}`}>{currentUser.fname}</Link> */}
-              <Link to={`/users/${currentUser.id}`}>{currentUser.fname}</Link>
+              <Link to={`/${currentUser.username}`}>{currentUser.fname}</Link>
             </li>
             <li>
               <a
