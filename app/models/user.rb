@@ -21,6 +21,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :boards
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

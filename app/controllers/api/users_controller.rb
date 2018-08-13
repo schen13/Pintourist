@@ -20,11 +20,11 @@ class Api::UsersController < ApplicationController
         end
       end
       render json: errors, status: 422
-      # render json: @user.errors.full_messages, status: 422
     end
   end
 
   def show
+    @user = User.find(params[:id])
     render 'api/users/show'
   end
 

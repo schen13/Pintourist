@@ -23,12 +23,12 @@
 | `id`          |  integer  | not null, primary key          |
 | `user_id`     |  integer  | not null, indexed, foreign key |
 | `title`       |  string   | not null                       |
-| `description` |  string   | optional                       |
+| `description` |  text     | optional                       |
 | `created_at`  | datetime  | not null                       |
 | `updated_at`  | datetime  | not null                       |
 
 - `user_id` references `users`
-- index on `:user_id, unique: true`
+- index on `:user_id`
 
 # `pins`
 
@@ -37,12 +37,12 @@
 | `id`          |  integer  | not null, primary key          |
 | `user_id`     |  integer  | not null, indexed, foreign key |
 | `url`         |  string   | not null                       |
-| `description` |  string   | optional                       |
+| `description` |  text     | optional                       |
 | `created_at`  | datetime  | not null                       |
 | `updated_at`  | datetime  | not null                       |
 
 - `user_id` references `users`
-- index on `:user_id, unique: true`
+- index on `:user_id`
 
 # `follows`
 
