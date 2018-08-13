@@ -21,8 +21,13 @@ const mapDispatchToProps = dispatch => ({
       className="board-modal-container"
       onClick={() => dispatch(openModal('create'))}
     >
-      Create Board
-    </div>
+      <div className="board-thumbnail">
+        <div className="board-create-icon">
+          <i className="fas fa-plus-circle"></i>
+        </div>
+      </div>
+      <div className="board-title-link">Create Board</div>
+    </div >
   )
 });
 

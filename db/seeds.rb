@@ -9,6 +9,6 @@
 User.destroy_all
 Board.destroy_all
 
-u1 = User.create!(username: "demo_user", fname: "DemoUser", lname: "Smith", email: "demo@demo.com", password: "password")
+u1 = User.create!(username: "demo_user", fname: "Demo", lname: "User", email: "demo@demo.com", password: "password")
 b1 = Board.create!(user_id: u1.id, title: "Places to Visit", description: "Top destinations")
 b2 = Board.create!(user_id: u1.id, title: "More Places to Visit")

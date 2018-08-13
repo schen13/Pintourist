@@ -64,14 +64,43 @@
   padding: 20px;
   .board-modal-container,
   .board-index-item {
-    width: 285px;
-    height: 200px;
-    padding: 10px;
-    margin: 10px;
+    width: 290px;
+    height: 290px;
+    padding: 15px;
     border-radius: 10px;
     &:hover {
       background-color: $light-gray;
       cursor: pointer;
+      .board-thumbnail {
+        background-color: $gray
+      }
+    }
+    .board-thumbnail {
+      width: 280px;
+      height: 200px;
+      position: relative;
+      margin: 0;
+      border-radius: 5px;
+      background-color: $light-gray;
+      text-align: center;
+      .board-create-icon {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: auto;
+        i {
+          font-size: 40px;
+          color: $light-blue;
+        }
+      }
+    }
+    .board-title-link {
+      width: 280px;
+      height: 45px;
+      padding: 5px;
     }
   }
 }
