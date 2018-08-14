@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_13_232141) do
+ActiveRecord::Schema.define(version: 2018_08_13_221818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2018_08_13_232141) do
   end
 
   create_table "pinnings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "board_id", null: false
     t.integer "pin_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["board_id", "pin_id"], name: "index_pinnings_on_board_id_and_pin_id", unique: true
   end
 
