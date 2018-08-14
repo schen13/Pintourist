@@ -6,20 +6,21 @@ import {
   deleteBoard,
   createBoard
 } from '../../actions/board_actions';
-import { openModal } from '../../actions/modal_actions';
+import { openBoardModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  boards: ownProps.boards
+  boards: ownProps.boards,
+  user: ownProps.user
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchAllBoards: () => dispatch(fetchAllBoards()),
   createBoard: board => dispatch(createBoard(board)),
   deleteBoard: boardId => dispatch(deleteBoard(boardId)),
-  openModal: (
+  openBoardModal: (
     <div
       className="board-modal-container"
-      onClick={() => dispatch(openModal('create'))}
+      onClick={() => dispatch(openBoardModal('create'))}
     >
       <div className="board-thumbnail">
         <div className="board-create-icon">

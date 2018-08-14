@@ -36,14 +36,14 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state).then(this.props.closeModal);
+    this.props.processForm(this.state).then(this.props.closeSignupModal);
   }
 
   loginDemo(e) {
     e.preventDefault();
     this.props
       .login({ username: 'demo_user', password: 'password' })
-      .then(this.props.closeModal());
+      .then(this.props.closeSignupModal());
   }
 
   changeForms() {

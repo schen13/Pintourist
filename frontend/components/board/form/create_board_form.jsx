@@ -16,13 +16,13 @@ class CreateBoardForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state).then(this.props.closeModal);
+    this.props.processForm(this.state).then(this.props.closeBoardModal);
     this.setState({ title: '' });
   }
 
   // consider making all form classes the same for drier CSS
   render() {
-    const { errors, formType, closeModal } = this.props;
+    const { errors, formType, closeBoardModal } = this.props;
     const newErrors = {};
     errors.forEach(error => {
       newErrors[Object.keys(error).shift()] = Object.values(error).shift();
@@ -31,7 +31,7 @@ class CreateBoardForm extends React.Component {
       <div className="board-form-container">
         <div className="board-form-header">
           <h5>Create Board</h5>
-          <button onClick={closeModal}>
+          <button onClick={closeBoardModal}>
             <i className="fas fa-times"></i>
           </button>
         </div>
@@ -55,14 +55,14 @@ class CreateBoardForm extends React.Component {
             <textarea
               className={`board-input${newErrors.description ? `-error` : ``}`}
               value={this.state.description}
-              placeholder="Description"
+              placeholder="Say more about this board"
               onChange={this.update('description')}
             />
           </span>
 
           <div className={`board-error${newErrors.description ? `` : `-none`}`}>{newErrors.description}</div>
           <div className="board-form-footer">
-            <button className="cancel-form" onClick={closeModal}>Cancel</button>
+            <button className="cancel-form" onClick={closeBoardModal}>Cancel</button>
             <input className="board-submit" type="submit" value={formType} />
           </div>
         </form>

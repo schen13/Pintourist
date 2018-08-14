@@ -1,6 +1,6 @@
 import React from 'react';
 import BoardIndexContainer from '../board/board_index_container';
-import PinsIndexContainer from '../pins/pins_index_container';
+import PinIndexContainer from '../pin/pin_index_container';
 
 class Tabs extends React.Component {
   render() {
@@ -39,26 +39,25 @@ class ProfileTabs extends React.Component {
   }
 
   render() {
-    const { boards } = this.props;
+    const { user, boards, pins } = this.props;
     const selectedTabIdx = this.state.selectedTabIdx;
     const contents = [{
       title: 'Boards',
       content: boards,
     }, {
       title: 'Pins',
-      content: 'User\'s pins'
+      content: pins
     }];
     const selectedTab = (
       selectedTabIdx === 0 ?
         <div className="profile-content-container">
-          <BoardIndexContainer boards={
-            contents[selectedTabIdx].content
-          } />
+          <BoardIndexContainer
+            boards={contents[selectedTabIdx].content}
+            user={user} />
         </div> :
         <div className="profile-content-container">
-          <PinsIndexContainer pins={
-            contents[selectedTabIdx].content
-          } />
+          <PinIndexContainer
+            pins={contents[selectedTabIdx].content} />
         </div>
     );
     return (

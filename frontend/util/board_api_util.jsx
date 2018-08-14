@@ -5,7 +5,6 @@ export const fetchAllBoards = () => (
   })
 );
 
-
 export const fetchSingleBoard = id => (
   $.ajax({
     method: 'GET',

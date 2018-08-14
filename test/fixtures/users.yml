@@ -5,7 +5,7 @@
 #  id              :bigint(8)        not null, primary key
 #  username        :string           not null
 #  fname           :string           not null
-#  lname           :string           not null
+#  lname           :string
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null

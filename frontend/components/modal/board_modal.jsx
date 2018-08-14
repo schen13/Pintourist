@@ -3,7 +3,7 @@ import CreateBoardFormContainer from '../board/form/create_board_form_container'
 import EditBoardFormContainer from '../board/form/edit_board_form_container';
 import { connect } from 'react-redux';
 
-const BoardModal = ({ boardModal, closeModal }) => {
+const BoardModal = ({ boardModal, closeBoardModal }) => {
   if (!boardModal) return null;
   let component;
   switch (boardModal) {
@@ -17,7 +17,7 @@ const BoardModal = ({ boardModal, closeModal }) => {
       return null;
   }
   return (
-    <div className="board-modal-background" onClick={closeModal}>
+    <div className="board-modal-background" onClick={closeBoardModal}>
       <div className="board-modal-child" onClick={e => e.stopPropagation()} >
         {component}
       </div>
@@ -25,14 +25,14 @@ const BoardModal = ({ boardModal, closeModal }) => {
   );
 };
 
-import { closeModal } from '../../actions/modal_actions';
+import { closeBoardModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
   boardModal: state.ui.boardModal
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal: () => dispatch(closeModal())
+  closeBoardModal: () => dispatch(closeBoardModal())
 });
 
 export default connect(

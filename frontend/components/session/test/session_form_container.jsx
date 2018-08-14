@@ -7,7 +7,7 @@ import {
   login,
   removeSessionErrors
 } from '../../actions/session_actions';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { openSignupModal, closeSignupModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ errors, session }, ownProps) => {
   const buttonText = (path === '/signup') ? 'Sign Up' : 'Log In';
@@ -36,12 +36,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     otherForm: (
       <div
         className="other-form"
-        onClick={() => dispatch(openModal(otherFormType))}
+        onClick={() => dispatch(openSignupModal(otherFormType))}
       >
         {otherFormText}
       </div>
     ),
-    closeModal: () => dispatch(closeModal()),
+    closeSignupModal: () => dispatch(closeSignupModal()),
     clearErrors: () => dispatch(removeSessionErrors()),
     formTitle
   };

@@ -8,7 +8,9 @@
 
 User.destroy_all
 Board.destroy_all
+Pin.destroy_all
 
 u1 = User.create!(username: "demo_user", fname: "Demo", lname: "User", email: "demo@demo.com", password: "password")
 b1 = Board.create!(user_id: u1.id, title: "Places to Visit", description: "Top destinations")
 b2 = Board.create!(user_id: u1.id, title: "More Places to Visit")
+p1 = Pin.create!(user_id: u1.id, url: "https://www.society19.com/5-amazing-places-visit-japan/", description: "5 Amazing Places to Visit in Japan")

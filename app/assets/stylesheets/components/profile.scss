@@ -5,7 +5,6 @@
   flex-flow: column;
   justify-content: center;
   vertical-align: center;
-
 }
 
 .user-info-container {
@@ -66,24 +65,25 @@
   padding: 20px;
   .board-modal-container,
   .board-index-item {
-    width: 290px;
-    height: 290px;
+    width: 310px;
+    height: 270px;
     padding: 15px;
     border-radius: 10px;
+    box-sizing: border-box;
     &:hover {
-      background-color: $light-gray;
+      background-color: $lighter-gray;
       cursor: pointer;
       .board-thumbnail {
-        background-color: $gray
+        background-color: $light-gray;
       }
     }
     .board-thumbnail {
       width: 280px;
       height: 200px;
       position: relative;
-      margin: 0;
+      margin-right: 0;
       border-radius: 5px;
-      background-color: $light-gray;
+      background-color: $lighter-gray;
       text-align: center;
       .board-create-icon {
         width: 40px;
@@ -103,6 +103,55 @@
       width: 280px;
       height: 45px;
       padding: 5px;
+    }
+  }
+  .pin-modal-container {
+    width: 236px;
+    height: 273px;
+    padding: 12px 12px 28px 12px;
+    border-radius: 10px;
+    &:hover {
+      background-color: $lighter-gray;
+      cursor: pointer;
+      .pin-modal-thumbnail {
+        background-color: $light-gray;
+      }
+    }
+    .pin-modal-thumbnail {
+      width: 236px;
+      height: 236px;
+      position: relative;
+      margin: 0;
+      border-radius: 5px;
+      background-color: $lighter-gray;
+      text-align: center;
+      .pin-create-icon {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: auto;
+        i {
+          font-size: 40px;
+          color: $light-blue;
+        }
+      }
+    }
+    .pin-title-link {
+      padding: 5px;
+    }
+  }
+  .pin-index-item {
+    height: 153px;
+    width: 236px;
+    border-radius: 5px;
+    &:hover {
+      background-color: $lighter-gray;
+      cursor: -moz-zoom-in; 
+      cursor: -webkit-zoom-in; 
+      cursor: zoom-in;
     }
   }
 }

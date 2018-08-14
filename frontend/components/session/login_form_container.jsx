@@ -2,7 +2,7 @@ import LoginForm from './login_form';
 import React from 'react';
 import { connect } from 'react-redux';
 import { login, removeSessionErrors } from '../../actions/session_actions';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { openSignupModal, closeSignupModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ errors }) => ({
   errors: errors.session,
@@ -13,11 +13,11 @@ const mapStateToProps = ({ errors }) => ({
 const mapDispatchToProps = dispatch => ({
   processForm: user => dispatch(login(user)),
   otherForm: (
-    <div className="other-form" onClick={() => dispatch(openModal('signup'))}>
+    <div className="other-form" onClick={() => dispatch(openSignupModal('signup'))}>
       Sign Up
     </div>
   ),
-  closeModal: () => dispatch(closeModal()),
+  closeSignupModal: () => dispatch(closeSignupModal()),
   login: user => dispatch(login(user)),
   clearErrors: () => dispatch(removeSessionErrors())
 });

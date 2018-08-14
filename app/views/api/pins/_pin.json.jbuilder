@@ -1,0 +1,1 @@
+json.extract! pin, :id, :user_id, :url, :description

@@ -153,7 +153,7 @@ textarea {
       font-size: 20px;
     }
     i {
-      font-size: 20px;
+      font-size: 30px;
       padding: 10px;
     }
   }
@@ -258,3 +258,143 @@ input[class^="board-input"] {
   height: 0px;
   display: none;
 }
+
+.pin-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.pin-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+
+  background-color: white;
+  border-radius: 10px;
+  font-family: HelveticaNeue;
+  font-size: 16px;
+
+  .pin-form-header {
+    padding: 25px 15px 25px 15px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    i {
+      position: absolute;
+      top: 13px;
+      right: 10px;
+      font-size: 30px;
+      padding: 10px;
+    }
+  }
+}
+
+.pin-form-container,
+.pin-form,
+.pin-form-footer {
+  width: 800px;
+}
+
+.pin-form {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  span {
+    border-top: 1px solid $light-gray;
+    width: 100%;
+    padding: 16px 16px 0 16px;
+    .input-label {
+      width: 115px;
+      text-align: left;
+      vertical-align: middle;
+      padding: 0 10px;
+      margin: 0;
+    }
+    textarea {
+      resize: none;
+    }
+    input, textarea {
+      margin: 10px;
+      width: 528px;
+    }
+  }
+  .pin-form-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid $light-gray;
+    padding: 16px;
+    button, input {
+      padding: 10px;
+      margin: 0px 10px;
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+    .cancel-form {
+      background-color: $light-gray;
+      color: black;
+    }
+    .pin-submit {
+      background-color: $light-blue;
+      color: white;
+    }
+  }
+}
+
+input[class^="pin-input"] {
+  border-radius: 5px;
+  border: 1px solid #8e8e8e;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 10px;
+  width: $input-width;
+  text-align: left;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  &:focus {
+    box-shadow: 0 0 6px 2px rgba(81, 203, 238, 1);
+  }
+}
+
+.pin-input-error {
+  box-shadow: 0 0 6px 2px rgba(255, 0, 0, 0.7);
+}
+
+.pin-submit {
+  width: $input-width;
+  height: 50px;
+  border-radius: 5px;
+  background-color: $light-blue;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8
+  }
+}
+
+.pin-error {
+  font-size: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0 30px 10px 30px;
+  text-align: left;
+  color: red;
+}
+
+.pin-error-none {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+

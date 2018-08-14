@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import CreateBoardForm from './create_board_form';
 import { createBoard } from '../../../actions/board_actions';
-import { openModal, closeModal } from '../../../actions/modal_actions';
+import { closeBoardModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = ({ errors }) => ({
   errors: errors.board,
@@ -10,7 +10,7 @@ const mapStateToProps = ({ errors }) => ({
 
 const mapDispatchToProps = dispatch => ({
   processForm: board => dispatch(createBoard(board)),
-  closeModal: () => dispatch(closeModal())
+  closeBoardModal: () => dispatch(closeBoardModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateBoardForm);
