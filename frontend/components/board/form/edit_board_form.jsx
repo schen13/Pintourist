@@ -1,17 +1,23 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-class CreateBoardForm extends React.Component {
+class EditBoardForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
-      description: ''
-    };
+    this.state = this.props.board;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteBoard(this.state.id)
+      .then(this.props.history.push(`/${this.props.userPath}`))
+      .then(this.props.closeBoardModal);
   }
 
   handleSubmit(e) {
@@ -22,7 +28,7 @@ class CreateBoardForm extends React.Component {
 
   // consider making all form classes the same for drier CSS
   render() {
-    const { errors, formType, closeBoardModal } = this.props;
+    const { errors, closeBoardModal } = this.props;
     const newErrors = {};
     errors.forEach(error => {
       newErrors[Object.keys(error).shift()] = Object.values(error).shift();
@@ -30,7 +36,7 @@ class CreateBoardForm extends React.Component {
     return (
       <div className="board-form-container">
         <div className="board-form-header">
-          <h5>Create Board</h5>
+          <h5>Edit Board</h5>
           <button onClick={closeBoardModal}>
             <i className="fas fa-times"></i>
           </button>
@@ -61,14 +67,19 @@ class CreateBoardForm extends React.Component {
           </span>
 
           <div className={`board-error${newErrors.description ? `` : `-none`}`}>{newErrors.description}</div>
-          <div className="create-board-form-footer">
-            <button className="cancel-form" onClick={closeBoardModal}>Cancel</button>
-            <input className="board-submit" type="submit" value={formType} disabled={this.state.title === ''} />
+          <div className="edit-board-form-footer">
+            <div className="board-footer-left">
+              <button className="board-delete-button" onClick={this.handleDelete}>Delete</button>
+            </div>
+            <div className="board-footer-right">
+              <button className="cancel-form" onClick={closeBoardModal}>Cancel</button>
+              <input className="board-submit" type="submit" value="Save" disabled={this.state.title === ''} />
+            </div>
           </div>
         </form>
-      </div >
+      </div>
     );
   }
 }
 
-export default CreateBoardForm;
+export default withRouter(EditBoardForm);

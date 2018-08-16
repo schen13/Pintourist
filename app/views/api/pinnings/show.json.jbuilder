@@ -1,0 +1,1 @@
+json.extract! @pinning, :id, :board_id, :pin_id

@@ -4,6 +4,8 @@ export const OPEN_BOARD_MODAL = 'OPEN_BOARD_MODAL';
 export const CLOSE_BOARD_MODAL = 'CLOSE_BOARD_MODAL';
 export const OPEN_PIN_MODAL = 'OPEN_PIN_MODAL';
 export const CLOSE_PIN_MODAL = 'CLOSE_PIN_MODAL';
+export const OPEN_PIN_DETAIL_MODAL = 'OPEN_PIN_DETAIL_MODAL';
+export const CLOSE_PIN_DETAIL_MODAL = 'CLOSE_PIN_DETAIL_MODAL';
 
 export const openSignupModal = modal => ({
   type: OPEN_SIGNUP_MODAL,
@@ -30,4 +32,17 @@ export const openPinModal = modal => ({
 
 export const closePinModal = () => ({
   type: CLOSE_PIN_MODAL
+});
+
+// export const openPinDetailModalRedirect = modal => dispatch => (
+//   dispatch(openPinDetailModal(modal)).then(this.props.history.push)
+// );
+
+export const openPinDetailModal = modal => ({
+  type: OPEN_PIN_DETAIL_MODAL,
+  modal
+});
+
+export const closePinDetailModal = () => ({
+  type: CLOSE_PIN_DETAIL_MODAL
 });

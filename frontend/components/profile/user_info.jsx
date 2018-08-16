@@ -9,7 +9,7 @@ const UserInfo = ({ user }) => {
         </h3>
       </div>
       <div className="profile-pic">
-        <img src={window.profPicURL} alt="profpic" />
+        <i className="fas fa-user-circle"></i>
       </div>
     </div>
   );

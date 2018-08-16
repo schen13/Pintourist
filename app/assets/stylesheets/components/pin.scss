@@ -1,0 +1,83 @@
+$pin-detail-width: 630px;
+
+.pin-info-buttons,
+.pin-info,
+.pin-text {
+  width: $pin-detail-width;
+}
+
+.pin-info-buttons,
+.pin-info {
+  padding: 10px 20px 0 20px;
+}
+
+.pin-detail-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: $light-gray;
+  &:hover {
+    cursor: -moz-zoom-out; 
+    cursor: -webkit-zoom-out; 
+    cursor: zoom-out;
+  }
+  .pin-info-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    padding: 10px;
+    width: 670px;
+    height: auto;
+    &:hover {
+      cursor: auto
+    }
+
+    background-color: white;
+    border-radius: 10px;
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    .pin-pic {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+    }
+    .pin-text {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 5px 20px 5px;
+      font-size: 20px;
+      vertical-align: middle;
+      .pin-url {
+        background-color: $light-gray;
+        border-radius: 5px;
+        padding: 10px 20px 10px 20px;
+        font-weight: 700;
+        i {
+          font-size: 16px;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.pin-detail-edit-container {
+  height: 30px;
+  width: 30px;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: $light-gray;
+    cursor: pointer;
+  }
+}

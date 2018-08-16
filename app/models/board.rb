@@ -14,7 +14,7 @@ class Board < ApplicationRecord
   validates :user_id, :title, presence: true
   
   belongs_to :user
-  has_many :pinnings
+  has_many :pinnings, dependent: :destroy
   has_many :pins,
     through: :pinnings,
     source: :pin

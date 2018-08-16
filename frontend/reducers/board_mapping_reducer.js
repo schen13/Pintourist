@@ -7,7 +7,7 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_BOARDS:
       let newState = merge({}, state);
       Object.values(action.boards).forEach(board => (
-        newState[board.title] = board.id
+        newState[board.title.replace(/\s+/g, '-').toLowerCase()] = board.id
       ));
       return newState;
     default:

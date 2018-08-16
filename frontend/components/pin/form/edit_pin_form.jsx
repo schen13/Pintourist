@@ -1,15 +1,11 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 
-class CreatePinForm extends React.Component {
+class EditPinForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      url: '',
-      description: '',
-      photoFile: null,
-      photoUrl: null
-    };
+    console.log(this.props.pin);
+    this.state = this.props.pin;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.onDrop = this.onDrop.bind(this);
@@ -31,18 +27,12 @@ class CreatePinForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('pin[url]', this.state.url);
-    formData.append('pin[description]', this.state.description);
-    if (this.state.photoFile) {
-      formData.append('pin[photo]', this.state.photoFile);
-    }
-    this.props.processForm(formData)
+    this.props.processForm(this.state)
       .then(this.props.closePinModal);
   }
 
   render() {
-    const disabled = this.state.photoFile ? false : true;
+    const disabled = this.state.photoUrl ? false : true;
     const upload = this.state.photoUrl ?
       <img src={this.state.photoUrl} /> :
       <Dropzone
@@ -61,7 +51,7 @@ class CreatePinForm extends React.Component {
     return (
       <div className="pin-form-container">
         <div className="pin-form-header">
-          Create Pin
+          Edit Pin
           <button onClick={closePinModal}>
             <i className="fas fa-times"></i>
           </button>
@@ -97,8 +87,14 @@ class CreatePinForm extends React.Component {
             <div className={`pin-error${newErrors.description ? `` : `-none`}`}>{newErrors.description}</div>
           </div>
 
-          <div className="pin-form-footer">
-            <input className="pin-submit" type="submit" value="Done" disabled={disabled} />
+          <div className="edit-pin-form-footer">
+            <div className="pin-footer-left">
+              <button className="pin-delete-button" onClick={this.handleDelete}>Delete</button>
+            </div>
+            <div className="pin-footer-right">
+              <button className="cancel-form" onClick={closePinModal}>Cancel</button>
+              <input className="pin-submit" type="submit" value="Save" disabled={disabled} />
+            </div>
           </div>
         </form>
       </div>
@@ -106,4 +102,4 @@ class CreatePinForm extends React.Component {
   }
 }
 
-export default CreatePinForm;
+export default EditPinForm;

@@ -1,6 +1,6 @@
 import {
   RECEIVE_BOARD_ERRORS, REMOVE_BOARD_ERRORS
-} from '../actions/board_actions';
+} from '../../actions/board_actions';
 
 export default (state = [], action) => {
   Object.freeze(state);

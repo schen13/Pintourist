@@ -102,7 +102,7 @@ textarea {
 .session-submit:hover,
 .demo-login:hover,
 .other-form:hover {
-  opacity: 0.8;
+  box-shadow: inset 0 0 0 99999px rgba(128,128,128,0.2);
 }
 
 .session-error {
@@ -121,7 +121,8 @@ textarea {
   display: none;
 }
 
-.board-modal-background {
+.board-modal-background,
+.pin-modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -150,7 +151,8 @@ textarea {
     h5 {
       margin: 0;
       padding: 10px;
-      font-size: 20px;
+      font-size: 24px;
+      vertical-align: center;
     }
     i {
       font-size: 30px;
@@ -161,7 +163,8 @@ textarea {
 
 .board-form-container,
 .board-form,
-.board-form-footer {
+.create-board-form-footer,
+.edit-board-form-footer {
   width: 600px;
 }
 
@@ -172,7 +175,7 @@ textarea {
   span {
     border-top: 1px solid $light-gray;
     width: 100%;
-    padding: 16px 16px 0 16px;
+    padding: 16px 16px 6px 16px;
     .input-label {
       width: 115px;
       text-align: left;
@@ -188,28 +191,37 @@ textarea {
       width: 528px;
     }
   }
-  .board-form-footer {
-    display: flex;
-    justify-content: flex-end;
+
+  .create-board-form-footer,
+  .edit-board-form-footer {
     border-top: 1px solid $light-gray;
     padding: 16px;
     button, input {
-      padding: 10px;
+      padding: 10px 14px;
       margin: 0px 10px;
       width: auto;
       height: auto;
       border-radius: 10px;
       font-weight: 700;
     }
-    .cancel-form {
+    .cancel-form, .board-delete-button {
       background-color: $light-gray;
       color: black;
-    }
-    .board-submit {
-      background-color: $light-blue;
-      color: white;
+      &:hover {
+        box-shadow: inset 0 0 0 99999px rgba(128,128,128,0.2);
+      }
     }
   }
+}
+
+.create-board-form-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-board-form-footer {
+  display: flex;
+  justify-content: space-between;
 }
 
 input[class^="board-input"] {
@@ -232,16 +244,11 @@ input[class^="board-input"] {
 }
 
 .board-submit {
-  width: $input-width;
   height: 50px;
   border-radius: 5px;
   background-color: $light-blue;
   color: white;
   font-weight: 700;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8
-  }
 }
 
 .board-error {
@@ -266,7 +273,7 @@ input[class^="board-input"] {
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
+  z-index: 5;
 }
 
 .pin-form-container {
@@ -275,6 +282,7 @@ input[class^="board-input"] {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: auto;
+  z-index: 6;
 
   background-color: white;
   border-radius: 10px;
@@ -301,52 +309,58 @@ input[class^="board-input"] {
 .pin-form-container,
 .pin-form,
 .pin-form-footer {
-  width: 600px;
+  width: 800px;
 }
 
 .pin-form {
+  border-top: 1px solid $light-gray;
+  height: 550px;
   display: flex;
-  flex-flow: wrap;
-  align-items: center;
-  span {
-    border-top: 1px solid $light-gray;
-    width: 100%;
-    padding: 16px 16px 0 16px;
-    .input-label {
-      width: 115px;
-      text-align: left;
-      vertical-align: middle;
-      padding: 0 10px;
-      margin: 0;
-    }
-    textarea {
-      resize: none;
-    }
-    input, textarea {
-      margin: 10px;
-      width: 528px;
+  flex-flow: row wrap;
+  div {
+    box-sizing: border-box;
+  }
+  .pin-image-container {
+    width: 350px;
+    height: 450px;
+    padding: 75px 0px 0px 50px;
+  }
+  .pin-form-inputs {
+    width: 400px;
+    height: 450px;
+    padding: 20px;
+    span {
+      // width: 100%;
+      padding: 16px 16px 0 16px;
+      .input-label {
+        // width: 115px;
+        text-align: left;
+        vertical-align: middle;
+        padding: 0 10px;
+        margin: 0;
+      }
+      textarea {
+        resize: none;
+        height: 150px;
+      }
+      input, textarea {
+        margin: 10px;
+        width: 100%;
+      }
     }
   }
   .pin-form-footer {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     border-top: 1px solid $light-gray;
-    padding: 16px;
-    button, input {
-      padding: 10px;
-      margin: 0px 10px;
+    box-sizing: border-box;
+    padding: 8px 16px 8px 16px;
+    .pin-submit {
       width: auto;
       height: auto;
-      border-radius: 10px;
       font-weight: 700;
-    }
-    .cancel-form {
-      background-color: $light-gray;
-      color: black;
-    }
-    .pin-submit {
-      background-color: $light-blue;
-      color: white;
+      border-radius: 5px;
     }
   }
 }
@@ -370,24 +384,11 @@ input[class^="pin-input"] {
   box-shadow: 0 0 6px 2px rgba(255, 0, 0, 0.7);
 }
 
-.pin-submit {
-  width: $input-width;
-  height: 50px;
-  border-radius: 5px;
-  background-color: $light-blue;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8
-  }
-}
-
 .pin-error {
   font-size: 12px;
   width: 100%;
   margin: 0;
-  padding: 0 30px 10px 30px;
+  padding: 0 15px 10px 15px;
   text-align: left;
   color: red;
 }
@@ -398,3 +399,45 @@ input[class^="pin-input"] {
   display: none;
 }
 
+.board-submit,
+.pin-submit {
+  padding: 10px 14px 10px 14px;
+  background-color: $light-blue;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    box-shadow: inset 0 0 0 99999px rgba(128,128,128,0.2);
+  }
+  &:disabled {
+    background-color: $light-gray;
+    color: $gray;
+    &:hover {
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.edit-pin-form-footer {
+  width: 800px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $lighter-gray;
+  button, input {
+    padding: 10px 14px;
+    margin: 0px 10px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+  .cancel-form, .pin-delete-button {
+    background-color: $light-gray;
+    color: black;
+    &:hover {
+      box-shadow: inset 0 0 0 99999px rgba(128,128,128,0.2);
+    }
+  }
+}

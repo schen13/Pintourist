@@ -46,7 +46,10 @@
     display: flex;
     align-items: center;
     list-style: none;
-    li {
+    .nav-home,
+    .nav-profile,
+    .github-link,
+    .dropdown {
       padding: 10px;
       border-radius: 25px;
       cursor: pointer;
@@ -59,6 +62,47 @@
 
 .github-link i {
   font-size: 30px;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 64px;
+  right: 0;
+  background-color: white;
+  border: 1px solid $light-gray;
+  border-radius: 8px;
+  width: 225px;
+  z-index: 1;
+  color: black;
+  box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+  text-decoration: none;
+  display: flex;
+  flex-flow: column;
+}
+
+li[class^="dropdown-option"] {
+  width: 100%;
+}
+
+.edit-profile-button,
+.logout-button {
+  padding: 12px 15px;
+  width: 100%;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 0px;
+  cursor: pointer;
+  border: 1px solid $lighter-gray;
+  &:hover {
+    background-color: $light-gray;
+  }
+}
+
+.edit-profile-button {
+  border-radius: 8px 8px 0 0;
+}
+.logout-button {
+  border-radius: 0 0 8px 8px;
 }
 
 .logout {

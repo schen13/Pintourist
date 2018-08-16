@@ -2,7 +2,7 @@ import {
   RECEIVE_ALL_BOARDS,
   RECEIVE_SINGLE_BOARD,
   REMOVE_BOARD
-} from '../actions/board_actions';
+} from '../../actions/board_actions';
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {

@@ -20,13 +20,16 @@ export const createBoard = board => (
   })
 );
 
-export const updateBoard = board => (
-  $.ajax({
+export const updateBoard = board => {
+  console.log(board);
+  console.log(board.id);
+  return $.ajax({
     method: 'PATCH',
     url: `api/boards/${board.id}`,
     data: { board }
-  })
-);
+  });
+
+};
 
 export const deleteBoard = boardId => (
   $.ajax({

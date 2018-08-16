@@ -19,7 +19,8 @@ export const fetchSinglePin = id => dispatch => (
 export const createPin = pin => dispatch => (
   PinAPIUtil.createPin(pin).then(
     res => dispatch(receiveSinglePin(res)),
-    errors => dispatch(receivePinErrors(errors.responseJSON)))
+    errors => dispatch(receivePinErrors(errors.responseJSON))
+  )
 );
 
 export const updatePin = pin => dispatch => (

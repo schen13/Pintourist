@@ -1,13 +1,30 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import BoardDetail from './board_detail';
-import { fetchSingleBoard } from '../../actions/post_actions';
+import { withRouter } from 'react-router-dom';
+import { fetchSingleBoard } from '../../actions/board_actions';
+import { openBoardModal } from '../../actions/modal_actions';
+import { selectPinsForBoard } from '../../reducers/selectors';
 
-const mapStateToProps = ({ entities: { boards }, boardMapping, ownProps }) => ({
-  board: boards[boardMapping[ownProps.match.params.boardTitle]],
-});
+const mapStateToProps = ({ entities: { boards, pins, pinnings, users }, boardMapping }, ownProps) => {
+  const board = boards[boardMapping[ownProps.match.params.boardTitle]];
+  return {
+    board,
+    pins: selectPinsForBoard(pinnings, pins, board.id),
+    user: users[board.userId]
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
-  fetchSingleBoard: id => dispatch(fetchSingleBoard(id))
+  fetchSingleBoard: id => dispatch(fetchSingleBoard(id)),
+  openBoardModal: (
+    <div
+      className="edit-board-modal-container"
+      onClick={() => dispatch(openBoardModal('edit'))}
+    >
+      <i className="fas fa-pencil-alt"></i>
+    </div>
+  )
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoardDetail);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardDetail));

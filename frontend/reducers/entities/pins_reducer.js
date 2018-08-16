@@ -2,7 +2,7 @@ import {
   RECEIVE_ALL_PINS,
   RECEIVE_SINGLE_PIN,
   REMOVE_PIN
-} from '../actions/pin_actions';
+} from '../../actions/pin_actions';
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {

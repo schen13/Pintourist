@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Dropdown from './dropdown';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -7,6 +8,14 @@ class Navbar extends React.Component {
 
   render() {
     const { currentUser, logout } = this.props;
+    const options = [
+      <button className="edit-profile-button" onClick={logout}>
+        Edit Profile
+      </button>,
+      <button className="logout-button" onClick={logout}>
+        Log Out
+      </button>
+    ];
     return (
       <header className="nav-bar">
         <nav className="left-nav">
@@ -22,18 +31,13 @@ class Navbar extends React.Component {
             <li className="nav-profile">
               <Link to={`/${currentUser.username}`}>{currentUser.fname}</Link>
             </li>
-            <li>
-              <a
-                className="github-link"
-                href="https://github.com/schen13/Pintourist"
-              >
+            <li className="github-link">
+              <a href="https://github.com/schen13/Pintourist">
                 <i className="fab fa-github" />
               </a>
             </li>
-            <li className="logout-container">
-              <button className="logout" onClick={logout}>
-                Log Out
-              </button>
+            <li className="dropdown">
+              <Dropdown options={options} />
             </li>
           </ul>
         </nav>

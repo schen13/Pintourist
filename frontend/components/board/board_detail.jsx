@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 class BoardDetail extends React.Component {
 
   constructor(props) {
@@ -12,12 +12,25 @@ class BoardDetail extends React.Component {
 
 
   render() {
-    const { board } = this.props;
+    const { board, user, openBoardModal } = this.props;
     return (
       <div className="board-detail-container">
-        <p>{board.title}</p>
-        <p>{board.description}</p>
-      </div>
+        <div className="board-info-container">
+          <div className="board-info-buttons">
+            {openBoardModal}
+          </div>
+          <div className="board-info">
+            <div className="board-title">
+              {board.title}
+            </div>
+            <div className="profile-pic">
+              <Link to={`/${user.username}`}>
+                <i className="fas fa-user-circle"></i>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div >
     );
   }
 }

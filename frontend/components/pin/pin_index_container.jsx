@@ -6,7 +6,7 @@ import {
   deletePin,
   createPin
 } from '../../actions/pin_actions';
-import { openPinModal } from '../../actions/modal_actions';
+import { openPinModal, openPinDetailModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   pins: ownProps.pins
@@ -28,7 +28,8 @@ const mapDispatchToProps = dispatch => ({
       </div>
       <div className="pin-title-link">Create Pin</div>
     </div >
-  )
+  ),
+  openPinDetailModal: () => dispatch(openPinDetailModal('show'))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PinIndex);
