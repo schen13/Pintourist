@@ -41,6 +41,7 @@ $pin-detail-width: 630px;
     font-family: HelveticaNeue;
     font-size: 16px;
     .pin-pic {
+      padding-bottom: 10px;
       img {
         width: 100%;
         height: auto;
@@ -80,4 +81,9 @@ $pin-detail-width: 630px;
     background-color: $light-gray;
     cursor: pointer;
   }
+}
+
+.pin-info-buttons {
+  display: flex;
+  justify-content: space-between;
 }

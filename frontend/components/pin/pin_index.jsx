@@ -17,7 +17,6 @@ class PinIndex extends React.Component {
           pin => <PinIndexItem
             key={pin.id}
             pin={pin}
-            openPinDetailModal={openPinDetailModal}
           />
         )}
       </div >

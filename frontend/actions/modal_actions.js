@@ -6,6 +6,8 @@ export const OPEN_PIN_MODAL = 'OPEN_PIN_MODAL';
 export const CLOSE_PIN_MODAL = 'CLOSE_PIN_MODAL';
 export const OPEN_PIN_DETAIL_MODAL = 'OPEN_PIN_DETAIL_MODAL';
 export const CLOSE_PIN_DETAIL_MODAL = 'CLOSE_PIN_DETAIL_MODAL';
+export const OPEN_PINNING_MODAL = 'OPEN_PINNING_MODAL';
+export const CLOSE_PINNING_MODAL = 'CLOSE_PINNING_MODAL';
 
 export const openSignupModal = modal => ({
   type: OPEN_SIGNUP_MODAL,
@@ -45,4 +47,13 @@ export const openPinDetailModal = modal => ({
 
 export const closePinDetailModal = () => ({
   type: CLOSE_PIN_DETAIL_MODAL
+});
+
+export const openPinningModal = modal => ({
+  type: OPEN_PINNING_MODAL,
+  modal
+});
+
+export const closePinningModal = () => ({
+  type: CLOSE_PINNING_MODAL
 });

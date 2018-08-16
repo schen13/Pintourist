@@ -16,8 +16,12 @@ class PinDetail extends React.Component {
     this.props.history.push(`/${this.props.username}`);
   }
 
+  handleSave(e) {
+    e.preventDefault();
+  }
+
   render() {
-    const { pin, openPinModal } = this.props;
+    const { pin, openPinModal, openPinningModal } = this.props;
     if (!pin) return <div>Loading...</div>;
     const splitURL = pin.url.split('/')[2].split('.');
     return (
@@ -27,6 +31,12 @@ class PinDetail extends React.Component {
           onClick={e => e.stopPropagation()}>
           <div className="pin-info-buttons">
             {openPinModal}
+            <button
+              className="create-pinning-button"
+              onClick={openPinningModal}>
+              <i className="fas fa-thumbtack"></i>
+              Save
+            </button>
           </div>
 
           <div className="pin-info">

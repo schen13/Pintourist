@@ -5,7 +5,6 @@ import { closePinModal } from '../../../actions/modal_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ entities: { pins }, errors }, ownProps) => {
-  console.log(ownProps.location);
   const splitPath = ownProps.location.pathname.split('/');
   return {
     errors: errors.pin,

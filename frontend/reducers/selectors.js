@@ -6,8 +6,14 @@ export const selectPinsForUser = (pins, userId) => (
   Object.values(pins).filter(pin => pin.userId === userId)
 );
 
-export const selectPinsForBoard = (pinnings, pins, boardId) => (
-  Object.values(pinnings)
-    .filter(pinning => pinning.boardId === boardId)
-    .map(pinning => pins[pinning.pinId])
+export const selectPinsForBoard = (pinnings, pins, boardId) => {
+  const boardPinnings = Object.values(pinnings)
+    .filter(pinning => pinning.boardId === boardId);
+  const boardPins = boardPinnings.map(pinning => pins[pinning.pinId]);
+  return boardPins;
+};
+
+export const selectBoardIdFromBoardTitle = (boards, boardTitle) => (
+  Object.values(boards)
+    .filter(board => board.title === boardTitle)
 );

@@ -6,6 +6,7 @@ import {
   deleteBoard,
   createBoard
 } from '../../actions/board_actions';
+import { fetchAllPinnings } from '../../actions/pinning_actions';
 import { openBoardModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -15,6 +16,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchAllBoards: () => dispatch(fetchAllBoards()),
+  fetchAllPinnings: () => dispatch(fetchAllPinnings()),
   createBoard: board => dispatch(createBoard(board)),
   deleteBoard: boardId => dispatch(deleteBoard(boardId)),
   openBoardModal: (

@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PinDetail from './pin_detail';
 import { withRouter } from 'react-router-dom';
-import { fetchSinglePin } from '../../actions/pin_actions';
-import { openPinModal } from '../../actions/modal_actions';
-import { updatePin } from '../../actions/pin_actions';
+import { fetchSinglePin, updatePin } from '../../actions/pin_actions';
+import { openPinModal, openPinningModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ entities: { pins, users } }, ownProps) => {
   const pin = pins[ownProps.match.params.pinId];
@@ -25,6 +24,7 @@ const mapDispatchToProps = dispatch => ({
       <i className="fas fa-pencil-alt"></i>
     </div>
   ),
+  openPinningModal: () => dispatch(openPinningModal('create'))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PinDetail));

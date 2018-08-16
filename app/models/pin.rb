@@ -13,7 +13,7 @@
 class Pin < ApplicationRecord
   validates :user_id, :url, presence: true
   validates :url, url: true
-  validate :ensure_photo
+  # validate :ensure_photo
   
   has_one_attached :photo
 
@@ -23,7 +23,7 @@ class Pin < ApplicationRecord
     through: :pinnings,
     source: :pin
 
-  def ensure_photo
-    errors[:photo] << "must be attached" unless self.photo.attached?
-  end
+  # def ensure_photo
+  #   errors[:photo] << "must be attached" unless self.photo.attached?
+  # end
 end

@@ -1,3 +1,10 @@
+export const fetchAllPinnings = () => (
+  $.ajax({
+    method: 'GET',
+    url: `api/pinnings`
+  })
+);
+
 export const createPinning = pinning => (
   $.ajax({
     method: 'POST',

@@ -5,6 +5,7 @@ class BoardIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllBoards();
+    this.props.fetchAllPinnings();
   }
 
   render() {

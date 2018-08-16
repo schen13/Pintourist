@@ -1,6 +1,11 @@
 class Api::PinningsController < ApplicationController
   before_action :require_logged_in
 
+  def index
+    @pinnings = Pinning.all
+    render 'api/pinnings/index'
+  end
+
   def create
     @pinning = Pinning.new(pinning_params)
     if @pinning.save

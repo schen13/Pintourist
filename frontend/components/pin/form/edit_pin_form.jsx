@@ -4,7 +4,6 @@ import Dropzone from 'react-dropzone';
 class EditPinForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.pin);
     this.state = this.props.pin;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);

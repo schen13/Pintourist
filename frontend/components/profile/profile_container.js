@@ -16,7 +16,7 @@ const mapStateToProps = ({ entities: { users, boards, pins }, usernameMapping },
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchDesiredUser: id => dispatch(fetchDesiredUser(id)),
+  fetchDesiredUser: id => dispatch(fetchDesiredUser(id))
 });
 
 export default connect(
