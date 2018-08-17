@@ -10,8 +10,8 @@ class BoardDetail extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSingleBoard(this.props.board.id);
-    this.props.fetchAllPins();
+    this.props.fetchSingleBoard(this.props.board.id)
+      .then(() => this.props.fetchAllPins());
   }
 
   render() {
@@ -52,9 +52,9 @@ class BoardDetail extends React.Component {
               </Link>
             </div>
           </div>
-        </div>
-        <div className="board-detail-pins">
           <div className="board-pins-title">Your Pins</div>
+        </div>
+        <div className="masonry-board">
           {selectedPins.map(
             pin => <PinIndexItem
               key={pin ? pin.id : ""}

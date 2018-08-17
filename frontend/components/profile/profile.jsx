@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import UserInfo from './user_info';
 import ProfileTabs from './profile_tabs';
+import { selectBoardsForUser, selectPinsForUser } from '../../reducers/selectors';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -9,20 +10,23 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchDesiredUser(this.props.user.id);
     this.props.fetchAllPins();
   }
 
   render() {
-    const { user, boards, pins } = this.props;
-    if (!user) return <div>Loading...</div>;
+    const { users, boards, pins, usernameMapping } = this.props;
+    const userId = usernameMapping[this.props.match.params.username];
+    const selectedUser = users[userId];
+    const selectedBoards = selectBoardsForUser(boards, userId);
+    const selectedPins = selectPinsForUser(pins, userId);
+    if (!selectedUser) return <div>Loading...</div>;
     return (
       <div className="profile-container">
-        <UserInfo user={user} />
+        <UserInfo user={selectedUser} />
         <ProfileTabs
-          user={user}
-          boards={boards}
-          pins={pins} />
+          user={selectedUser}
+          boards={selectedBoards}
+          pins={selectedPins} />
       </div>
     );
   }

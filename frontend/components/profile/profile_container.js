@@ -8,11 +8,11 @@ import {
 } from '../../reducers/selectors';
 
 const mapStateToProps = ({ entities: { users, boards, pins }, usernameMapping }, ownProps) => {
-  const userId = usernameMapping[ownProps.match.params.username];
   return {
-    user: users[userId],
-    boards: selectBoardsForUser(boards, userId),
-    pins: selectPinsForUser(pins, userId)
+    usernameMapping,
+    users,
+    boards,
+    pins
   };
 };
 

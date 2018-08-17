@@ -9,10 +9,10 @@ class BoardIndex extends React.Component {
   }
 
   render() {
-    const { boards, pins, pinnings, user, openBoardModal } = this.props;
+    const { boards, pins, pinnings, user, currentUserId, openBoardModal } = this.props;
     return (
       <div className="profile-index-container">
-        {openBoardModal}
+        {currentUserId === user.id ? openBoardModal : ''}
         {boards.map(
           board => <BoardIndexItem
             key={board.id}

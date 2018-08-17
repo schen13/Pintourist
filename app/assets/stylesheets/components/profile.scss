@@ -35,12 +35,13 @@
   flex-flow: column;
   .tabs {
     width: 700px;
-    margin: auto;
+    height: 40px;
+    margin: 0 auto 30px auto;
     display: flex;
     flex-flow: row;
     li {
       padding: 10px 15px;
-      margin: 0;
+      height: 20px;
       border-radius: 25px;
       color: $gray;
       font-size: 16px;
@@ -61,7 +62,7 @@
 .profile-index-container {
   display: flex;
   flex-flow: row wrap;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   .board-modal-container,
   .board-index-item {
     width: 310px;
@@ -112,45 +113,51 @@
       padding: 5px;
     }
   }
-  .pin-modal-container {
-    width: 230px;
-    height: 270px;
-    padding: 12px 12px 28px 12px;
-    border-radius: 10px;
-    &:hover {
-      background-color: $lighter-gray;
-      cursor: pointer;
-      .pin-modal-thumbnail {
-        background-color: $light-gray;
-      }
-    }
+}
+
+.pins-container {
+  display: flex;
+  justify-content: space-evenly
+}
+.pin-modal-container {
+  width: 230px;
+  height: 270px;
+  padding: 12px 12px 28px 12px;
+  border-radius: 10px;
+  &:hover {
+    background-color: $lighter-gray;
+    cursor: pointer;
     .pin-modal-thumbnail {
-      width: 230px;
-      height: 230px;
-      position: relative;
-      margin: 0;
-      border-radius: 5px;
-      background-color: $lighter-gray;
-      text-align: center;
-      .pin-create-icon {
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: auto;
-        i {
-          font-size: 40px;
-          color: $light-blue;
-        }
-      }
-    }
-    .pin-title-link {
-      padding: 5px;
+      background-color: $light-gray;
     }
   }
+  .pin-modal-thumbnail {
+    width: 230px;
+    height: 230px;
+    position: relative;
+    margin: 0;
+    border-radius: 5px;
+    background-color: $lighter-gray;
+    text-align: center;
+    .pin-create-icon {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: auto;
+      i {
+        font-size: 40px;
+        color: $light-blue;
+      }
+    }
+  }
+  .pin-title-link {
+    padding: 5px;
+  }
 }
+
 .board-pins-title {
   width: 700px;
   font-size: 24px;
@@ -158,48 +165,70 @@
   margin: 10px;
 }
 
-.pin-thumbnail {
-  background-color: $lighter-gray;
-  border-radius: 5px;
-  display: table;
-  &:hover {
-    background-color: $lighter-gray;
-    img {
-      background-color: $light-gray;
-      cursor: -moz-zoom-in; 
-      cursor: -webkit-zoom-in; 
-      cursor: zoom-in;
-      filter: brightness(90%);
-    }
-  }
-  img {
-    width: 230px;
-    height: auto;
-    display: table-row;
-    border-radius: 5px;
-  }
+.pins-container {
+  position: relative
 }
 
-.pin-thumbnail {
-  position: relative;
-  &:hover {
-    cursor: -moz-zoom-in; 
-    cursor: -webkit-zoom-in; 
-    cursor: zoom-in;
-    .create-pinning-button-small,
-    .pin-url-small {
-      display: block;
+.masonry-board {
+  position: absolute;
+  top: 220px;
+}
+
+// .masonry-pin {
+//   position: absolute;
+//   top: 0px;
+//   left: 250px;
+// }
+
+.masonry-board,
+.masonry-pin {
+  margin: 1.5em auto 1.5em auto;
+  padding: 0 20px;
+  column-gap: 1em;
+  box-sizing: border-box;
+  div {
+    box-sizing: inherit;
+  }
+  .pin {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 0.8em;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    &:hover {
+      background-color: $lighter-gray;
+      -webkit-transition: background-color 300ms linear;
+      -ms-transition: background-color 300ms linear;
+      transition: background-color 300ms linear;
+      cursor: -moz-zoom-in;
+      cursor: -webkit-zoom-in;
+      cursor: zoom-in;
+      img {
+        cursor: -moz-zoom-in;
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
+        opacity: 0.7;
+      }
+      .create-pinning-button-small {
+        display: block;
+        opacity: 1;
+      }
+    }
+    img {
+      border-radius: 10px;
       opacity: 1;
+      transition: .8s opacity;
     }
   }
   .create-pinning-button-small {
     padding: 10px 14px;
     border-radius: 5px;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 15px;
+    right: 15px;
     display: none;
-    z-index: 1;
 
     background-color: $light-blue;
     font-size: 14px;
@@ -228,7 +257,7 @@
     background-color: $lighter-gray;
     border-radius: 5px;
     padding: 10px 10px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
     display: none;
     i {
@@ -241,5 +270,31 @@
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  .masonry-board,
+  .masonry-pin {
+    column-count: 5;
+  }
+}
 
+@media only screen and (max-width: 1199px) and (min-width: 1000px) {
+  .masonry-board,
+  .masonry-pin {
+    column-count: 4;
+  }
+}
+
+@media only screen and (max-width: 999px) and (min-width: 800px) {
+  .masonry-board,
+  .masonry-pin {
+    column-count: 3;
+  }
+}
+
+@media only screen and (max-width: 799px) and (min-width: 600px) {
+  .masonry-board,
+  .masonry-pin {
+    column-count: 2;
+  }
+}
 

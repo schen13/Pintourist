@@ -1,10 +1,9 @@
 .board-detail-container {
-  margin: 75px auto 10px auto;
-  width: 700px;
+  position: relative;
+  margin: 75px 0 10px 0;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  vertical-align: center;
 }
 
 .board-info-container {

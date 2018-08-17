@@ -57,7 +57,8 @@ class ProfileTabs extends React.Component {
         </div> :
         <div className="profile-content-container">
           <PinIndexContainer
-            pins={contents[selectedTabIdx].content} />
+            pins={contents[selectedTabIdx].content}
+            user={user} />
         </div>
     );
     return (

@@ -1,7 +1,37 @@
+// Inspired by Rahul Arora http://w3bits.com/css-masonry/
+.webpage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading-spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  z-index: 11;
+}
+
 .masonry {
-  margin: 94px 30px 0 30px;
-  column-count: 4;
+  position: absolute;
+  top: 64px;
+  margin: 1.5em auto 1.5em auto;
+  padding: 0 20px;
   column-gap: 1em;
+  box-sizing: border-box;
+  div {
+    box-sizing: inherit;
+  }
   .pin {
     position: relative;
     display: inline-block;
@@ -19,17 +49,20 @@
       cursor: -webkit-zoom-in;
       cursor: zoom-in;
       img {
-        filter: brightness(80%);
         cursor: -moz-zoom-in;
         cursor: -webkit-zoom-in;
         cursor: zoom-in;
+        opacity: 0.7;
       }
       .create-pinning-button-small {
         display: block;
+        opacity: 1;
       }
     }
     img {
       border-radius: 10px;
+      opacity: 1;
+      transition: .8s opacity;
     }
   }
   .create-pinning-button-small {
@@ -39,7 +72,6 @@
     top: 15px;
     right: 15px;
     display: none;
-    z-index: 1;
 
     background-color: $light-blue;
     font-size: 14px;
@@ -58,5 +90,29 @@
       cursor: pointer;
       filter: brightness(90%);
     }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .masonry {
+    column-count: 5;
+  }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 1000px) {
+  .masonry {
+    column-count: 4;
+  }
+}
+
+@media only screen and (max-width: 999px) and (min-width: 800px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media only screen and (max-width: 799px) and (min-width: 600px) {
+  .masonry {
+    column-count: 2;
   }
 }

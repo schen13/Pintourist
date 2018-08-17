@@ -1,12 +1,13 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import { withRouter } from 'react-router-dom';
 
 class EditPinForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.pin;
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.onDrop = this.onDrop.bind(this);
   }
 
@@ -14,7 +15,7 @@ class EditPinForm extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
-  onDrop(acceptedFiles, rejectedFiles) {
+  onDrop(acceptedFiles) {
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ photoFile: acceptedFiles[0], photoUrl: fileReader.result });
@@ -24,6 +25,13 @@ class EditPinForm extends React.Component {
     }
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deletePin(this.state.id)
+      .then(this.props.closePinModal)
+      .then(() => this.props.history.goBack());
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
@@ -31,7 +39,8 @@ class EditPinForm extends React.Component {
   }
 
   render() {
-    const disabled = this.state.photoUrl ? false : true;
+    const disabled =
+      (this.state.photoUrl && (this.state.userId === this.props.currentUserId)) ? false : true;
     const upload = this.state.photoUrl ?
       <img src={this.state.photoUrl} /> :
       <Dropzone
@@ -46,7 +55,7 @@ class EditPinForm extends React.Component {
     errors.forEach(error => {
       newErrors[Object.keys(error).shift()] = Object.values(error).shift();
     });
-
+    const disabledEdit = (this.state.userId !== this.props.currentUserId);
     return (
       <div className="pin-form-container">
         <div className="pin-form-header">
@@ -101,4 +110,4 @@ class EditPinForm extends React.Component {
   }
 }
 
-export default EditPinForm;
+export default withRouter(EditPinForm);

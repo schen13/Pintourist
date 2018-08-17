@@ -7,12 +7,17 @@ import {
   createPin
 } from '../../actions/pin_actions';
 import { openPinModal, openPinDetailModal } from '../../actions/modal_actions';
+import { nowLoading, stopLoading } from '../../actions/loading_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  pins: ownProps.pins
+const mapStateToProps = ({ session }, ownProps) => ({
+  pins: ownProps.pins,
+  user: ownProps.user,
+  currentUserId: session.id
 });
 
 const mapDispatchToProps = dispatch => ({
+  nowLoading: () => dispatch(nowLoading()),
+  stopLoading: () => dispatch(stopLoading()),
   fetchAllPins: () => dispatch(fetchAllPins()),
   createPin: pin => dispatch(createPin(pin)),
   deletePin: pinId => dispatch(deletePin(pinId)),

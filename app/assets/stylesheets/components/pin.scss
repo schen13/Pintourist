@@ -1,23 +1,28 @@
-$pin-detail-width: 630px;
+$pin-detail-width: 600px;
 
 .pin-info-buttons,
-.pin-info,
-.pin-text {
+.pin-body,
+.pin-info {
   width: $pin-detail-width;
+  box-sizing: border-box;
 }
 
-.pin-info-buttons,
-.pin-info {
-  padding: 10px 20px 0 20px;
+.pin-info-buttons {
+  padding: 10px 12px 0 7px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pin-body {
+  padding: 10px;
 }
 
 .pin-detail-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: $lighter-gray;
+  z-index: 5;
   &:hover {
     cursor: -moz-zoom-out; 
     cursor: -webkit-zoom-out; 
@@ -50,12 +55,11 @@ $pin-detail-width: 630px;
   }
   .pin-info-container {
     position: absolute;
-    top: 50%;
+    top: 80px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     margin: auto;
     padding: 10px;
-    width: 670px;
     height: auto;
     &:hover {
       cursor: auto
@@ -76,42 +80,54 @@ $pin-detail-width: 630px;
         border-radius: 5px;
       }
     }
-    .pin-text {
+    .pin-info {
       display: flex;
-      justify-content: space-between;
+      flex-flow: column;
+      width: 100%;
       padding: 20px 5px 20px 5px;
       font-size: 20px;
       vertical-align: middle;
-      .pin-url {
-        background-color: $light-gray;
-        border-radius: 5px;
-        padding: 10px 20px 10px 20px;
-        font-weight: 700;
-        i {
-          font-size: 16px;
-          padding-right: 10px;
+      .pin-text {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .pin-owner-name {
+          padding-bottom: 5px;
+          font-weight: bold;
+          font-size: 20px;
         }
+        .pin-url {
+          background-color: $light-gray;
+          border-radius: 5px;
+          padding: 10px 20px 10px 20px;
+          font-weight: 700;
+          i {
+            font-size: 16px;
+            padding-right: 10px;
+          }
+        }
+      }
+      .pin-description {
+        padding: 10px 0;
+        font-size: 16px;
       }
     }
   }
 }
 
 .pin-detail-edit-container {
-  height: 30px;
-  width: 30px;
-  font-size: 25px;
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
   padding: 10px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: $gray;
   &:hover {
     background-color: $light-gray;
     cursor: pointer;
   }
-}
-
-.pin-info-buttons {
-  display: flex;
-  justify-content: space-between;
 }

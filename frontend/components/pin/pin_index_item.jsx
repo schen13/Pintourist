@@ -15,8 +15,12 @@ class PinIndexItem extends React.Component {
     const { pin } = this.props;
     const splitURL = pin.url.split('/')[2].split('.');
     return (
-      <div className="pin-thumbnail">
-        <button className="create-pinning-button-small"
+      <div key={pin.id} className="pin">
+        <Link to={`/pin/${pin.id}`}>
+          <img src={pin.photoUrl} />
+        </Link>
+        <button
+          className="create-pinning-button-small"
           onClick={this.handleClick}>
           <i className="fas fa-thumbtack"></i>
           Save
@@ -27,11 +31,7 @@ class PinIndexItem extends React.Component {
             {splitURL[1].concat('.', splitURL[2])}
           </div>
         </a>
-        <Link to={`/pin/${pin.id}`}>
-          <img className="pin-image"
-            src={pin.photoUrl} />
-        </Link>
-      </div >
+      </div>
     );
   }
 }

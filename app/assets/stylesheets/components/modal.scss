@@ -1,3 +1,39 @@
+// $input-width: 275px;
+
+// .signup-modal-background {
+//   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+//     image_url('santorini.jpg');
+//     // url("https://s3-us-west-1.amazonaws.com/pintourist-dev/zbo2nN55cA8HrVvJbbxDmSsM");
+//   background-size: cover;
+//   background-repeat: repeat-x;
+//   width: 100%;
+//   height: 100vh;
+//   margin: 0px auto;
+//   overflow: hidden;
+//   display: flex;
+//   -webkit-animation: 10s scroll infinite linear;
+//   transition: 4s;
+//   animation: 10s scroll infinite linear;
+// }
+
+// // Inspired by https://codepen.io/ScottMarshall/pen/vAtgB
+
+// @-webkit-keyframes scroll {
+//   from {
+//     background-position: 0px;
+//   } to {
+//     background-position: -500px;
+//   }
+// }
+
+// @keyframes scroll {
+//   from {
+//     background-position: 0px;
+//   } to {
+//     background-position: -500px;
+//   }
+// }
+
 $input-width: 275px;
 
 .signup-modal-background {
@@ -5,7 +41,7 @@ $input-width: 275px;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     image-url('santorini.jpg');
   // https://pixabay.com/en/oia-santorini-village-greece-416136/
-  background-size: 100% auto;
+  background-size: 150% auto;
   background-repeat: repeat-y;
   top: 0;
   left: 0;
@@ -29,6 +65,7 @@ $input-width: 275px;
     background-position: 0px -1000px;
   }
 }
+
 
 .session-form-container {
   width: 400px;
@@ -276,7 +313,7 @@ input[class^="board-input"] {
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 5;
+  z-index: 6;
 }
 
 .pin-form-container {
@@ -285,7 +322,7 @@ input[class^="board-input"] {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: auto;
-  z-index: 6;
+  z-index: 7;
 
   background-color: white;
   border-radius: 10px;
@@ -505,11 +542,15 @@ input[class^="pin-input"] {
   display: flex;
   .pinning-image-container {
     width: 400px;
-    height: 500px;
+    height: 550px;
     padding: 0 20px 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    img {
+      max-height: 95%;
+      max-width: 95%;
+    }
   }
   .pinning-board-list {
     width: 400px;
@@ -523,6 +564,7 @@ input[class^="pin-input"] {
       .create-pinning-text {
         vertical-align: middle;
         font-weight: 700;
+        width: 200px;
       }
       border-right: 1px solid $light-gray;
       &:last-of-type {

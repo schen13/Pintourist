@@ -1,6 +1,6 @@
 import React from 'react';
 import { selectBoardIdFromBoardTitle } from '../../reducers/selectors';
-
+import { selectBoardsForUser } from '../../reducers/selectors';
 class CreatePinning extends React.Component {
   constructor(props) {
     super(props);
@@ -9,6 +9,10 @@ class CreatePinning extends React.Component {
       pinId: this.props.pin.id
     };
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllBoards();
   }
 
   handleClick(title) {
@@ -23,8 +27,8 @@ class CreatePinning extends React.Component {
   }
 
   render() {
-    const { boards, pin, closePinningModal } = this.props;
-
+    const { boards, pin, session, closePinningModal } = this.props;
+    const selectedBoards = selectBoardsForUser(boards, session.id);
     return (
       <div className="create-pinning-container">
         <div className="create-pinning-header">
@@ -40,7 +44,7 @@ class CreatePinning extends React.Component {
           </div>
 
           <ul className="pinning-board-list">
-            {boards.map(board => (
+            {selectedBoards.map(board => (
               <li
                 key={board.id}
                 className="pinning-board-item"
