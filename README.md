@@ -123,40 +123,7 @@ render() {
           onChange={this.update('fname')}
         />
         <div className={`session-error${newErrors.fname ? `` : `-none`}`}>{newErrors.fname}</div>
-        <input
-          className={`session-input${newErrors.lname ? `-error` : ``}`}
-          type="text"
-          value={this.state.lname}
-          placeholder="Last Name"
-          onChange={this.update('lname')}
-        />
-        <div className={`session-error${newErrors.lname ? `` : `-none`}`}>{newErrors.lname}</div>
-        <input
-          className={`session-input${newErrors.email ? `-error` : ``}`}
-          type="text"
-          value={this.state.email}
-          placeholder="Email"
-          onChange={this.update('email')}
-        />
-        <div className={`session-error${newErrors.email ? `` : `-none`}`}>{newErrors.email}</div>
-        <input
-          className={`session-input${newErrors.username ? `-error` : ``}`}
-          type="text"
-          value={this.state.username}
-          placeholder="Username"
-          onChange={this.update('username')}
-        />
-        <div className={`session-error${newErrors.username ? `` : `-none`}`}>{newErrors.username}</div>
-        <input
-          className={`session-input${newErrors.password ? `-error` : ``}`}
-          type="password"
-          value={this.state.password}
-          placeholder="Password"
-          onChange={this.update('password')}
-        />
-        <br />
-        <div className={`session-error${newErrors.password ? `` : `-none`}`}>{newErrors.password}</div>
-        <br />
+        ...
         <input className="session-submit" type="submit" value={formType} />
         <br />
         <button className="demo-login" onClick={this.loginDemo}>
@@ -168,9 +135,36 @@ render() {
   );
 }
 ```
-Elements receive different class names based on the presence or absence of errors, which are then styled through CSS class selectors.
+Elements receive different class names based on the presence or absence of errors, which are then styled through CSS class selectors. The other input fields were omitted for brevity. I aim to DRY up the forms by abstracting out repetitive code (e.g. form wrappers).
 
 ### Smart Modal
 ![Disabled Create Button](/design_docs/images/disabled_create.png)
 ![Enabled Create Button](/design_docs/images/enabled_create.png)
 ![Disabled Edit Button](/design_docs/images/disabled_edit.png)
+
+```js
+const disabled =
+      (this.state.photoUrl && (this.state.userId === this.props.currentUserId)) ? false : true;
+```
+The pin form submit buttons check for necessary fields (e.g. photoUrl) and remain disabled if the user has not uploaded a photo. This prevents users from making erroneous form submissions. The edit pin button is also disabled if the current user is not the owner of the pin.
+
+## Technologies
+
+Rails was used for the backend for simple implementation of RESTful routes. Due to the small scale of the project, Rails was perfect for ease of use.
+
+Normalized Redux states allowed for easy tracking of modals and extraction of relevant data based on the current path.
+
+Packages like react-dropzone and react-spinners were utilized for image drag/drop and page loading spinner animations respectively. AWS served as the primary image hosting, and submitted images (through pin creation) are pushed to an S3 bucket.
+
+### Additional Resources
++ [MVP List](MVP-List)
++ [Database Schema](Database-Schema)
++ [Sample State](Sample-State)
++ [Frontend Routes and Components](Frontend-Routes-and-Components)
++ [Backend Routes](Backend-Routes)
+
+## Future Features
+* Follows (users and boards)
+* Search Bar
+* Categories for smarter discover feed
+* Improved signup/login background
