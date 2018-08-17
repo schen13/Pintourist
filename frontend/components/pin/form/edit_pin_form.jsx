@@ -55,7 +55,6 @@ class EditPinForm extends React.Component {
     errors.forEach(error => {
       newErrors[Object.keys(error).shift()] = Object.values(error).shift();
     });
-    const disabledEdit = (this.state.userId !== this.props.currentUserId);
     return (
       <div className="pin-form-container">
         <div className="pin-form-header">

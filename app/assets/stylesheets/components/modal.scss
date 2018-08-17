@@ -365,6 +365,10 @@ input[class^="board-input"] {
     width: 350px;
     height: 450px;
     padding: 75px 0px 0px 50px;
+    img {
+      max-height: 95%;
+      max-width: 95%;
+    }
   }
   .pin-form-inputs {
     width: 400px;
