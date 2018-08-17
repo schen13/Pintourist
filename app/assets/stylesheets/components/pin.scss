@@ -67,6 +67,9 @@ $pin-detail-width: 630px;
     font-size: 16px;
     .pin-pic {
       padding-bottom: 10px;
+      a {
+        cursor: pointer;
+      }
       img {
         width: 100%;
         height: auto;

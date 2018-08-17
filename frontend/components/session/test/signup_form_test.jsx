@@ -6,7 +6,6 @@ import { Input } from '../../../node_modules/valuelink/tags';
 // Inspired by https://medium.com/@gaperton/react-forms-with-value-links-part-2-validation-9d1ba78f8e49
 const FormInput = (...props) => {
   props = props[0];
-  console.log(props);
   return (
     <div>
       <Input {...props} className="session-input" />

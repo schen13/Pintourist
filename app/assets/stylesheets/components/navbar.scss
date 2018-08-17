@@ -36,10 +36,6 @@
   }
 }
 
-.nav-home a {
-  color: black;
-}
-
 .right-nav {
   margin-right: 10px;
   ul {
@@ -47,6 +43,7 @@
     align-items: center;
     list-style: none;
     .nav-home,
+    .nav-following,
     .nav-profile,
     .github-link,
     .dropdown {
@@ -103,16 +100,4 @@ li[class^="dropdown-option"] {
 }
 .logout-button {
   border-radius: 0 0 8px 8px;
-}
-
-.logout {
-  color: #8e8e8e;
-  background-color: white;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.logout-container:hover .logout {
-  background-color: $light-gray;
 }

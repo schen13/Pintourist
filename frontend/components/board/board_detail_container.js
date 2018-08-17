@@ -8,7 +8,6 @@ import { openBoardModal, openPinDetailModal } from '../../actions/modal_actions'
 
 const mapStateToProps = ({ entities: { boards, pins, pinnings, users }, boardMapping }, ownProps) => {
   const board = boards[boardMapping[ownProps.match.params.boardTitle]];
-  console.log(board);
   return {
     board,
     pins,

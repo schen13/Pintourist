@@ -9,8 +9,6 @@ export const selectPinsForUser = (pins, userId) => (
 export const selectPinsForBoard = (pinnings, pins, boardId) => {
   const boardPinnings = Object.values(pinnings)
     .filter(pinning => pinning.boardId === boardId);
-  console.log(boardPinnings);
-  console.log(pins);
   const boardPins = boardPinnings.map(pinning => pins[pinning.pinId]);
   return boardPins;
 };

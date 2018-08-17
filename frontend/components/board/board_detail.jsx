@@ -25,7 +25,6 @@ class BoardDetail extends React.Component {
     } = this.props;
     const selectedPins = selectPinsForBoard(pinnings, pins, board.id);
     const pinCount = selectedPins.length === 1 ? `1 Pin` : `${selectedPins.length} Pins`;
-    console.log(selectedPins);
     return (
       <div className="board-detail-container">
         <div className="board-info-container">

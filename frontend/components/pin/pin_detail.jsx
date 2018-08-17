@@ -49,7 +49,9 @@ class PinDetail extends React.Component {
 
           <div className="pin-info">
             <div className="pin-pic">
-              <img src={pin.photoUrl}></img>
+              <a href={pin.url}>
+                <img src={pin.photoUrl}></img>
+              </a>
             </div>
             <div className="pin-text">
               <div className="pin-description">{pin.description}</div>

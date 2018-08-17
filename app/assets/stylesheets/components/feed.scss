@@ -1,0 +1,62 @@
+.masonry {
+  margin: 94px 30px 0 30px;
+  column-count: 4;
+  column-gap: 1em;
+  .pin {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    &:hover {
+      background-color: $lighter-gray;
+      -webkit-transition: background-color 300ms linear;
+      -ms-transition: background-color 300ms linear;
+      transition: background-color 300ms linear;
+      cursor: -moz-zoom-in;
+      cursor: -webkit-zoom-in;
+      cursor: zoom-in;
+      img {
+        filter: brightness(80%);
+        cursor: -moz-zoom-in;
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
+      }
+      .create-pinning-button-small {
+        display: block;
+      }
+    }
+    img {
+      border-radius: 10px;
+    }
+  }
+  .create-pinning-button-small {
+    padding: 10px 14px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: none;
+    z-index: 1;
+
+    background-color: $light-blue;
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+
+    i {
+      font-size: 16px;
+      color: white;
+      padding-right: 7px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(90%);
+    }
+  }
+}
