@@ -10,11 +10,6 @@ const prodPlugins = [
       'NODE_ENV': JSON.stringify('production')
     }
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: true
-    }
-  })
 ];
 
 plugins = plugins.concat(
