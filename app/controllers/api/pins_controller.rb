@@ -1,9 +1,7 @@
 class Api::PinsController < ApplicationController
   def create
-    debugger
     @pin = Pin.create(pin_params)
     @pin.user_id = current_user.id
-    debugger
     if @pin.save
       render 'api/pins/show'
     else

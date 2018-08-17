@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => ({
       <div className="pin-title-link">Create Pin</div>
     </div >
   ),
-  openPinDetailModal: () => dispatch(openPinDetailModal('show'))
+  openPinDetailModal: () => dispatch(openPinDetailModal('show')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PinIndex);

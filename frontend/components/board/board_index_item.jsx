@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { selectPinsForBoard } from '../../reducers/selectors';
 
-const BoardIndexItem = ({ board, user }) => {
+const BoardIndexItem = ({ board, pins, pinnings, user }) => {
   const titleAsUrl = board.title.replace(/\s+/g, '-').toLowerCase();
+  const firstPin = selectPinsForBoard(pinnings, pins, board.id)[0];
+  const pinPhoto = firstPin ?
+    <div className="board-thumbnail">
+      <img src={firstPin.photoUrl} />
+    </div> :
+    <div className="board-thumbnail"></div>;
   return (
     <Link to={`/${user.username}/${titleAsUrl}`}>
       <div className="board-index-item">
-        <div className="board-thumbnail">
-        </div>
+        {pinPhoto}
         <div className="board-title-link">
           {board.title}
         </div>

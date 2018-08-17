@@ -10,6 +10,7 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.fetchDesiredUser(this.props.user.id);
+    this.props.fetchAllPins();
   }
 
   render() {

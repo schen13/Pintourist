@@ -6,9 +6,9 @@ import { fetchSingleBoard } from '../../actions/board_actions';
 import { fetchAllPins } from '../../actions/pin_actions';
 import { openBoardModal, openPinDetailModal } from '../../actions/modal_actions';
 
-
 const mapStateToProps = ({ entities: { boards, pins, pinnings, users }, boardMapping }, ownProps) => {
   const board = boards[boardMapping[ownProps.match.params.boardTitle]];
+  console.log(board);
   return {
     board,
     pins,
@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => ({
       <i className="fas fa-pencil-alt"></i>
     </div>
   ),
-  openPinDetailModal: () => dispatch(openPinDetailModal('show'))
+  openPinDetailModal: () => dispatch(openPinDetailModal('show')),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardDetail));

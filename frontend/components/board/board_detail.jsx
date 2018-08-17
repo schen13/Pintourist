@@ -15,19 +15,37 @@ class BoardDetail extends React.Component {
   }
 
   render() {
-    const { board, pins, pinnings, user, openBoardModal, openPinDetailModal } = this.props;
+    const {
+      board,
+      pins,
+      pinnings,
+      user,
+      openBoardModal,
+      openPinDetailModal,
+    } = this.props;
     const selectedPins = selectPinsForBoard(pinnings, pins, board.id);
-    if (!selectedPins[0]) return null;
+    const pinCount = selectedPins.length === 1 ? `1 Pin` : `${selectedPins.length} Pins`;
     console.log(selectedPins);
     return (
       <div className="board-detail-container">
         <div className="board-info-container">
           <div className="board-info-buttons">
+            <div className="board-upload-icon">
+              <i className="fas fa-upload"></i>
+            </div>
             {openBoardModal}
+            <div className="board-ellipsis-icon">
+              <i className="fas fa-ellipsis-h"></i>
+            </div>
           </div>
           <div className="board-info">
-            <div className="board-title">
-              {board.title}
+            <div className="title-with-count">
+              <div className="board-title">
+                {board.title}
+              </div>
+              <div className="board-pin-count">
+                {pinCount}
+              </div>
             </div>
             <div className="profile-pic">
               <Link to={`/${user.username}`}>
@@ -37,11 +55,11 @@ class BoardDetail extends React.Component {
           </div>
         </div>
         <div className="board-detail-pins">
-          <div className="board-pins-title">Pins</div>
+          <div className="board-pins-title">Your Pins</div>
           {selectedPins.map(
             pin => <PinIndexItem
-              key={pin.id}
-              pin={pin}
+              key={pin ? pin.id : ""}
+              pin={pin ? pin : ""}
               openPinDetailModal={openPinDetailModal}
             />
           )}

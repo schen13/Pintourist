@@ -4,16 +4,17 @@ class PinDetail extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.routeToProfile = this.routeToProfile.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchSinglePin(this.props.match.params.pinId);
   }
 
-  handleClick(e) {
+  routeToProfile(e) {
     e.preventDefault();
-    this.props.history.push(`/${this.props.username}`);
+    e.stopPropagation();
+    this.props.history.goBack();
   }
 
   handleSave(e) {
@@ -26,7 +27,14 @@ class PinDetail extends React.Component {
     const splitURL = pin.url.split('/')[2].split('.');
     return (
       <div className="pin-detail-background"
-        onClick={this.handleClick}>
+        onClick={this.routeToProfile}>
+        <button
+          className="pin-detail-back-button"
+          onClick={this.routeToProfile}
+        >
+          <i class="fas fa-angle-left"></i>
+          Back
+        </button>
         <div className="pin-info-container"
           onClick={e => e.stopPropagation()}>
           <div className="pin-info-buttons">

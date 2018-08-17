@@ -1,6 +1,6 @@
 .board-detail-container {
-  margin-top: 75px;
-  margin-bottom: 10px;
+  margin: 75px auto 10px auto;
+  width: 700px;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -18,7 +18,10 @@
     width: 700px;
     height: 40px;
     padding: 5px 10px;
-    .edit-board-modal-container {
+    display: flex;
+    .board-upload-icon,
+    .edit-board-modal-container,
+    .board-ellipsis-icon {
       height: 40px;
       width: 40px;
       padding: 5px;
@@ -26,6 +29,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      i {
+        color: $gray;
+      }
       &:hover {
         background-color: $light-gray;
         cursor: pointer;
@@ -35,14 +41,19 @@
   .board-info {
     width: 750px;
     height: 100px;
-    padding: 5px 10px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     .board-title {
-      height: 100%;
+      height: 50%;
       width: auto;
       font-size: 44px;
       font-weight: 700;
+    }
+    .board-pin-count{
+      height: 50%;
+      color: $gray;
+      font-size: 16px;
     }
     .profile-pic {
       i {

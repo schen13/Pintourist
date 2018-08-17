@@ -9,9 +9,11 @@ import {
 import { fetchAllPinnings } from '../../actions/pinning_actions';
 import { openBoardModal } from '../../actions/modal_actions';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = ({ entities: { pinnings, pins } }, ownProps) => ({
   boards: ownProps.boards,
-  user: ownProps.user
+  user: ownProps.user,
+  pinnings,
+  pins
 });
 
 const mapDispatchToProps = dispatch => ({

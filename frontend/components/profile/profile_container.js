@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchDesiredUser } from '../../actions/user_actions';
+import { fetchAllPins } from '../../actions/pin_actions';
 import Profile from './profile';
 import {
   selectBoardsForUser,
@@ -16,7 +17,8 @@ const mapStateToProps = ({ entities: { users, boards, pins }, usernameMapping },
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchDesiredUser: id => dispatch(fetchDesiredUser(id))
+  fetchDesiredUser: id => dispatch(fetchDesiredUser(id)),
+  fetchAllPins: () => dispatch(fetchAllPins())
 });
 
 export default connect(

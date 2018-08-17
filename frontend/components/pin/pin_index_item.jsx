@@ -1,21 +1,39 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, withRouter } from 'react-router-dom';
 class PinIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.history.push(`/pin/${this.props.pin.id}`);
   }
 
   render() {
     const { pin } = this.props;
+    const splitURL = pin.url.split('/')[2].split('.');
     return (
       <div className="pin-thumbnail">
+        <button className="create-pinning-button-small"
+          onClick={this.handleClick}>
+          <i className="fas fa-thumbtack"></i>
+          Save
+        </button>
+        <a href={pin.url}>
+          <div className="pin-url-small">
+            <i className="fas fa-location-arrow"></i>
+            {splitURL[1].concat('.', splitURL[2])}
+          </div>
+        </a>
         <Link to={`/pin/${pin.id}`}>
-          <img src={pin.photoUrl} />
+          <img className="pin-image"
+            src={pin.photoUrl} />
         </Link>
       </div >
     );
   }
 }
 
-export default PinIndexItem;
+export default withRouter(PinIndexItem);

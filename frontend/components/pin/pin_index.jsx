@@ -8,7 +8,7 @@ class PinIndex extends React.Component {
   }
 
   render() {
-    const { pins, openPinModal, openPinDetailModal } = this.props;
+    const { pins, openPinModal } = this.props;
     if (!pins) return <div>Loading...</div>;
     return (
       <div className="profile-index-container">

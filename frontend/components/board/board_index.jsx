@@ -9,14 +9,17 @@ class BoardIndex extends React.Component {
   }
 
   render() {
+    const { boards, pins, pinnings, user, openBoardModal } = this.props;
     return (
       <div className="profile-index-container">
-        {this.props.openBoardModal}
-        {this.props.boards.map(
+        {openBoardModal}
+        {boards.map(
           board => <BoardIndexItem
             key={board.id}
             board={board}
-            user={this.props.user}
+            pins={pins}
+            pinnings={pinnings}
+            user={user}
           />
         )}
       </div >
