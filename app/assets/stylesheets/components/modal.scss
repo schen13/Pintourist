@@ -463,6 +463,7 @@ input[class^="pin-input"] {
   }
 }
 
+
 .edit-pin-form-footer {
   width: 800px;
   padding: 16px;
@@ -483,6 +484,17 @@ input[class^="pin-input"] {
     color: black;
     &:hover {
       box-shadow: inset 0 0 0 99999px rgba(128,128,128,0.2);
+    }
+  }
+}
+
+.pin-delete-button {
+  &:disabled {
+    background-color: $light-gray;
+    color: $gray;
+    &:hover {
+      box-shadow: none;
+      cursor: not-allowed;
     }
   }
 }

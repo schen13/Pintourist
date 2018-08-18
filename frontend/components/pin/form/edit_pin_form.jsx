@@ -96,7 +96,7 @@ class EditPinForm extends React.Component {
 
           <div className="edit-pin-form-footer">
             <div className="pin-footer-left">
-              <button className="pin-delete-button" onClick={this.handleDelete}>Delete</button>
+              <button className="pin-delete-button" onClick={this.handleDelete} disabled={disabled}>Delete</button>
             </div>
             <div className="pin-footer-right">
               <button className="cancel-form" onClick={closePinModal}>Cancel</button>
