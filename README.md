@@ -42,30 +42,9 @@ The project was designed and built in a two-week timeframe, but I plan to contin
     padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
-    &:hover {
-      background-color: $lighter-gray;
-      -webkit-transition: background-color 300ms linear;
-      -ms-transition: background-color 300ms linear;
-      transition: background-color 300ms linear;
-      cursor: -moz-zoom-in;
-      cursor: -webkit-zoom-in;
-      cursor: zoom-in;
-      img {
-        cursor: -moz-zoom-in;
-        cursor: -webkit-zoom-in;
-        cursor: zoom-in;
-        opacity: 0.7;
-      }
-      .create-pinning-button-small {
-        display: block;
-        opacity: 1;
-      }
-    }
-    img {
-      border-radius: 10px;
-      opacity: 1;
-      transition: .8s opacity;
-    }
+    
+    ...
+
   }
 }
 
@@ -93,14 +72,14 @@ The project was designed and built in a two-week timeframe, but I plan to contin
   }
 }
 ```
-![Responsive Masonry](/design_docs/images/responsive_masonry.gif)
+![Responsive Masonry](/design_docs/images/responsive_masonry.gif){:height="50%" width="50%"}
 
 With column-count based on media queries and transitioned opacity on hover, the pins respond to changes in screen size and user mouse input.
 
 ### Informative and Formatted Errors
 
-![Presence Validation Errors](/design_docs/images/presence_errors.png)
-![Uniqueness Validation Errors](/design_docs/images/unique_errors.png)
+![Presence Validation Errors](/design_docs/images/presence_errors.png){:height="50%" width="50%"}
+![Uniqueness Validation Errors](/design_docs/images/unique_errors.png){:height="50%" width="50%"}
 
 ```js
 render() {
@@ -123,7 +102,9 @@ render() {
           onChange={this.update('fname')}
         />
         <div className={`session-error${newErrors.fname ? `` : `-none`}`}>{newErrors.fname}</div>
+        
         ...
+
         <input className="session-submit" type="submit" value={formType} />
         <br />
         <button className="demo-login" onClick={this.loginDemo}>
@@ -138,9 +119,9 @@ render() {
 Elements receive different class names based on the presence or absence of errors, which are then styled through CSS class selectors. The other input fields were omitted for brevity. I aim to DRY up the forms by abstracting out repetitive code (e.g. form wrappers).
 
 ### Smart Modal
-![Disabled Create Button](/design_docs/images/disabled_create.png)
-![Enabled Create Button](/design_docs/images/enabled_create.png)
-![Disabled Edit Button](/design_docs/images/disabled_edit.png)
+![Disabled Create Button](/design_docs/images/disabled_create.png){:height="50%" width="50%"}
+![Enabled Create Button](/design_docs/images/enabled_create.png){:height="50%" width="50%"}
+![Disabled Edit Button](/design_docs/images/disabled_edit.png){:height="50%" width="50%"}
 
 ```js
 const disabled =
