@@ -21,7 +21,7 @@ The project was designed and built in a two-week timeframe, but I plan to contin
 
 
 ### Responsive Feed
-![Pintourist Feed](/design_docs/images/discover_feed.jpg)
+![Pintourist Feed](/design_docs/images/discover_feed.png)
 
 ```scss
 .masonry {
