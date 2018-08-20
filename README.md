@@ -21,7 +21,7 @@ The project was designed and built in a two-week timeframe, but I plan to contin
 
 
 ### Responsive Feed
-![Pintourist Feed](/design_docs/images/discover_feed.png)
+![Pintourist Feed](/design_docs/images/discover_feed.jpg)
 
 ```scss
 .masonry {
@@ -72,14 +72,14 @@ The project was designed and built in a two-week timeframe, but I plan to contin
   }
 }
 ```
-![Responsive Masonry](/design_docs/images/responsive_masonry.gif){:height="50%" width="50%"}
+![Responsive Masonry](/design_docs/images/responsive_masonry.gif)
 
 With column-count based on media queries and transitioned opacity on hover, the pins respond to changes in screen size and user mouse input.
 
 ### Informative and Formatted Errors
 
-![Presence Validation Errors](/design_docs/images/presence_errors.png){:height="50%" width="50%"}
-![Uniqueness Validation Errors](/design_docs/images/unique_errors.png){:height="50%" width="50%"}
+![Presence Validation Errors](/design_docs/images/presence_errors.jpg)
+![Uniqueness Validation Errors](/design_docs/images/unique_errors.jpg)
 
 ```js
 render() {
@@ -119,9 +119,9 @@ render() {
 Elements receive different class names based on the presence or absence of errors, which are then styled through CSS class selectors. The other input fields were omitted for brevity. I aim to DRY up the forms by abstracting out repetitive code (e.g. form wrappers).
 
 ### Smart Modal
-![Disabled Create Button](/design_docs/images/disabled_create.png){:height="50%" width="50%"}
-![Enabled Create Button](/design_docs/images/enabled_create.png){:height="50%" width="50%"}
-![Disabled Edit Button](/design_docs/images/disabled_edit.png){:height="50%" width="50%"}
+![Disabled Create Button](/design_docs/images/disabled_create.jpg)
+![Enabled Create Button](/design_docs/images/enabled_create.jpg)
+![Disabled Edit Button](/design_docs/images/disabled_edit.jpg)
 
 ```js
 const disabled =
