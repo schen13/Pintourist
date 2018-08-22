@@ -8,35 +8,35 @@ import SignupFormContainer from '../session/signup_form_container';
 class SignupModal extends React.Component {
   constructor(props) {
     super(props);
-    //   this.bgiArray = [
-    //     "https://s3-us-west-1.amazonaws.com/pintourist-dev/zbo2nN55cA8HrVvJbbxDmSsM",
-    //     "https://s3-us-west-1.amazonaws.com/pintourist-dev/1gZGTzJBpxZ65Nn1XZZ98FVr",
-    //     "https://s3-us-west-1.amazonaws.com/pintourist-dev/3yXuJsbQdmKkQv9566r65DMF",
-    //     "https://s3-us-west-1.amazonaws.com/pintourist-dev/5W5VU8CEnozLjHeTStJ65iRp"
-    //   ];
-    //   this.ms = 4000;
-    //   this.bgiArray.forEach(img => {
-    //     new Image().src = img;
-    //   });
-    //   this.bgSequence();
+    this.bgArray = [
+      window.santoriniURL,
+      window.neuschwansteinURL,
+      window.guanabaraURL,
+      window.marbleURL
+    ];
+    this.ms = 4000;
+    this.bgArray.forEach(img => {
+      new Image().src = img;
+    });
+    this.bgSequence();
   }
-  // bgSequence() {
-  //   window.clearTimeout();
-  //   let j = 0;
+  bgSequence() {
+    window.clearTimeout();
+    let j = 0;
 
-  //   for (let i = 0; i < this.bgiArray.length; i++) {
-  //     setTimeout(() => {
-  //       document.getElementsByClassName('signup-modal-background')[0].style.background = "url(" + this.bgiArray[j] + ") no-repeat center center fixed";
-  //       // document.getElementsByClassName('signup-modal-background')[0].style.backgroundSize = "150% 150%";
-  //       document.getElementsByClassName('signup-modal-background')[0].style.backgroundPosition = "0px";
-  //       if ((j + 1) === this.bgiArray.length) {
-  //         setTimeout(() => this.bgSequence(), this.ms);
-  //       } else {
-  //         j++;
-  //       }
-  //     }, this.ms * i);
-  //   }
-  // }
+    for (let i = 0; i < this.bgArray.length; i++) {
+      setTimeout(() => {
+        document.getElementsByClassName('signup-modal-background')[0].style.background = "url(" + this.bgArray[j] + ") no-repeat center center fixed";
+        document.getElementsByClassName('signup-modal-background')[0].style.backgroundSize = "150% 150%";
+        document.getElementsByClassName('signup-modal-background')[0].style.backgroundPosition = "0px";
+        if ((j + 1) === this.bgArray.length) {
+          setTimeout(() => this.bgSequence(), this.ms);
+        } else {
+          j++;
+        }
+      }, this.ms * i);
+    }
+  }
   render() {
     const { signupModal } = this.props;
     if (!signupModal) return null;
