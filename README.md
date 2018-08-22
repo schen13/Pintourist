@@ -9,16 +9,23 @@ This website, as the name suggests, is inspired by Pinterest and makes use of a 
 
 The project was designed and built in a two-week timeframe, but I plan to continue adding improvements, features, and bugfixes in the future.
 
+## Technologies
+
+Due to the small scale of the project, Rails' ease of use allowed for simple RESTful API and CRUD route implementation.
+
+React and React Router promoted seamless navigation through the app with descriptive pathnames. A normalized Redux state facilitated smooth modal tracking and extraction of relevant data based on the current path (e.g. username, board name).
+
+AWS and Rails ActiveStorage handled image upload and cloud storage, with submitted images (through pin creation) being pushed to an S3 bucket.
+
+Packages like react-dropzone and react-spinners were incorporated for image drag/drop and page loading spinner animations respectively.
 
 ## Features
-  * Secure backend user authentication with BCrypt
-    * Useful backend validations with informative error display on the frontend
-  * Users can create accounts, log in, or use a demo login to bypass this process
-  * Users can view both their own and others' profiles, including their boards and pins
-  * Users can create, edit, and delete both boards and pins, while also being able to save pins to their boards
-    * Users can only edit and delete their own boards and pins
-  * The homepage discover feed is responsive and display all pins nicely
-
+  * Secure BCrypt password hashing, backend Rails validations, and frontend validation logic generate intuitive error messages and disable improper submissions
+  * Creating an account, logging in, or using the demo login grants access main content, such as board and pin creation
+  * Once logged in, users can view each others' profiles, including their boards and pins
+  * Boards and pins can be easily created, modified, or deleted due to a RESTful API and normalized Redux state
+  * Responsive and aesthetically pleasing home feed, courtesy of simple CSS media queries and selectors
+  * Cloud-based image storage and upload through Rails ActiveStorage and AWS, optimizing for scalability and minimal server load
 
 ### Responsive Feed
 ![Pintourist Feed](/design_docs/images/discover_feed.png)
@@ -74,7 +81,7 @@ The project was designed and built in a two-week timeframe, but I plan to contin
 ```
 ![Responsive Masonry](/design_docs/images/responsive_masonry.gif)
 
-With column-count based on media queries and transitioned opacity on hover, the pins respond to changes in screen size and user mouse input.
+With a column-count based on media queries, the pins respond to different devices and screen sizes.
 
 ### Informative and Formatted Errors
 
@@ -128,14 +135,6 @@ const disabled =
       (this.state.photoUrl && (this.state.userId === this.props.currentUserId)) ? false : true;
 ```
 The pin form submit buttons check for necessary fields (e.g. photoUrl) and remain disabled if the user has not uploaded a photo. This prevents users from making erroneous form submissions. The edit pin button is also disabled if the current user is not the owner of the pin.
-
-## Technologies
-
-Rails was used for the backend for simple implementation of RESTful routes. Due to the small scale of the project, Rails was perfect for ease of use.
-
-Normalized Redux states allowed for easy tracking of modals and extraction of relevant data based on the current path.
-
-Packages like react-dropzone and react-spinners were utilized for image drag/drop and page loading spinner animations respectively. AWS served as the primary image hosting, and submitted images (through pin creation) are pushed to an S3 bucket.
 
 ### Additional Resources
 + [MVP List](MVP-List)
