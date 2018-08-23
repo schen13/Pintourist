@@ -3,7 +3,6 @@ $input-width: 275px;
 .signup-modal-background {
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     image_url('santorini.jpg');
-    // url("https://s3-us-west-1.amazonaws.com/pintourist-dev/zbo2nN55cA8HrVvJbbxDmSsM");
   background-size: cover;
   background-repeat: repeat-x;
   width: 100%;
@@ -13,7 +12,7 @@ $input-width: 275px;
   display: flex;
   -webkit-animation: scroll 15s infinite linear alternate;
   animation: scroll 15s infinite linear alternate;
-  transition: 2s;
+  transition: 2.5s;
 }
 
 // Inspired by https://codepen.io/ScottMarshall/pen/vAtgB
