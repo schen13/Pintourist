@@ -11,9 +11,9 @@ $input-width: 275px;
   margin: 0px auto;
   overflow: hidden;
   display: flex;
-  -webkit-animation: scroll 20s infinite linear;
-  animation: scroll 20s infinite linear;
-  transition: 3s;
+  -webkit-animation: scroll 15s infinite linear alternate;
+  animation: scroll 15s infinite linear alternate;
+  transition: 2s;
 }
 
 // Inspired by https://codepen.io/ScottMarshall/pen/vAtgB
@@ -22,7 +22,7 @@ $input-width: 275px;
   from {
     background-position: 0px;
   } to {
-    background-position: -500px;
+    background-position: -300px;
   }
 }
 
@@ -30,7 +30,7 @@ $input-width: 275px;
   from {
     background-position: 0px;
   } to {
-    background-position: -500px;
+    background-position: -300px;
   }
 }
 

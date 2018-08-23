@@ -8,33 +8,34 @@ import SignupFormContainer from '../session/signup_form_container';
 class SignupModal extends React.Component {
   constructor(props) {
     super(props);
-    this.bgArray = [
+    this.bgImages = [
       window.santoriniURL,
       window.neuschwansteinURL,
-      window.guanabaraURL,
-      window.marbleURL
+      window.auroraURL,
+      window.icelandURL,
     ];
-    this.ms = 4000;
-    this.bgArray.forEach(img => {
+    this.bgImages.forEach(img => {
       new Image().src = img;
     });
-    this.bgSequence();
+
+    this.timer = 3000;
+    this.renderImages();
   }
-  bgSequence() {
+  renderImages() {
     window.clearTimeout();
     let j = 0;
 
-    for (let i = 0; i < this.bgArray.length; i++) {
+    for (let i = 0; i < this.bgImages.length; i++) {
       setTimeout(() => {
-        document.getElementsByClassName('signup-modal-background')[0].style.background = "url(" + this.bgArray[j] + ") no-repeat center center fixed";
-        document.getElementsByClassName('signup-modal-background')[0].style.backgroundSize = "150% 150%";
+        document.getElementsByClassName('signup-modal-background')[0].style.background = "url(" + this.bgImages[j] + ") no-repeat center center fixed";
+        // document.getElementsByClassName('signup-modal-background')[0].style.backgroundSize = "120% 120%";
         document.getElementsByClassName('signup-modal-background')[0].style.backgroundPosition = "0px";
-        if ((j + 1) === this.bgArray.length) {
-          setTimeout(() => this.bgSequence(), this.ms);
+        if ((j + 1) === this.bgImages.length) {
+          setTimeout(() => this.renderImages(), this.timer);
         } else {
           j++;
         }
-      }, this.ms * i);
+      }, this.timer * i);
     }
   }
   render() {
