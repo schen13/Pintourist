@@ -2,7 +2,7 @@
 
 [Live Demo][heroku]
 
-[heroku]: https://pintouristapp.herokuapp.com/
+[heroku]: www.pintourist.co
 
 Welcome to Pintourist! Discover a world you never knew you needed to explore, until now.
 This website, as the name suggests, is inspired by Pinterest and makes use of a Rails/PostgreSQL backend with React/Redux frontend.
