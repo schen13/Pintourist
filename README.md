@@ -11,13 +11,13 @@ The project was designed and built in a two-week timeframe, but I plan to contin
 
 ## Technologies
 
-Due to the small scale of the project, Rails' ease of use allowed for simple RESTful API and CRUD route implementation.
+Ruby on Rails/PostgreSQL: Due to the small scale of the project, the ease of use allowed for a simple RESTful API and CRUD route implementation.
 
-React and React Router promoted seamless navigation through the app with descriptive pathnames. A normalized Redux state facilitated smooth modal tracking and extraction of relevant data based on the current path (e.g. username, board name).
+React/Redux: Promoted seamless navigation through the app with descriptive pathnames. A normalized Redux state facilitated smooth modal tracking and extraction of relevant data based on the current path (e.g. username, board name).
 
-AWS and Rails ActiveStorage handled image upload and cloud storage, with submitted images (through pin creation) being pushed to an S3 bucket.
+AWS/Rails ActiveStorage: Handled image upload and cloud storage, with submitted images (through pin creation) being pushed to an S3 bucket.
 
-Packages like react-dropzone and react-spinners were incorporated for image drag/drop and page loading spinner animations respectively.
+react-dropzone, react-spinners: Packages incorporated for image drag/drop and page loading spinner animations respectively.
 
 ## Features
   * Secure BCrypt password hashing, backend Rails validations, and frontend validation logic generate intuitive error messages and disable improper submissions
