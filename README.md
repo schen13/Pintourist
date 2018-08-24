@@ -11,7 +11,7 @@ The project was designed and built in a two-week timeframe, but I plan to contin
 
 ## Technologies
 
-Ruby on Rails/PostgreSQL: Due to the small scale of the project, the ease of use allowed for a simple RESTful API and CRUD route implementation.
+Ruby on Rails/PostgreSQL: Due to the project's smaller scale, Rails' ease of use allowed for a simple RESTful API and CRUD route implementation.
 
 React/Redux: Promoted seamless navigation through the app with descriptive pathnames. A normalized Redux state facilitated smooth modal tracking and extraction of relevant data based on the current path (e.g. username, board name).
 
