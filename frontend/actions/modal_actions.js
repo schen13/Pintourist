@@ -36,10 +36,6 @@ export const closePinModal = () => ({
   type: CLOSE_PIN_MODAL
 });
 
-// export const openPinDetailModalRedirect = modal => dispatch => (
-//   dispatch(openPinDetailModal(modal)).then(this.props.history.push)
-// );
-
 export const openPinDetailModal = modal => ({
   type: OPEN_PIN_DETAIL_MODAL,
   modal

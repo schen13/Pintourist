@@ -21,6 +21,7 @@ class SignupModal extends React.Component {
     this.timer = 3000;
     this.renderImages();
   }
+
   renderImages() {
     window.clearTimeout();
     let counter = 0;

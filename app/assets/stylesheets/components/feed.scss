@@ -11,6 +11,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  background-color: white;
 }
 
 .loading-spinner {
@@ -91,6 +92,30 @@
       filter: brightness(90%);
     }
   }
+}
+
+.feed-appear,
+.feed-enter {
+  opacity: 0.01;
+}
+
+.feed-appear.feed-appear-active,
+.feed-enter.feed-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+}
+
+.feed-leave {
+  opacity: 1;
+}
+
+.feed-leave.feed-leave-active {
+  opacity: 0.01;
+  transition: opacity 150ms ease-out;
+}
+
+.hidden {
+  display: none;
 }
 
 @media only screen and (min-width: 1200px) {
