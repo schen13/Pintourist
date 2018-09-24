@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import LinesEllipsis from 'react-lines-ellipsis';
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
-import { selectPinsForBoard } from '../../reducers/selectors';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
       query: ""
     };
     this.handleInput = this.handleInput.bind(this);
-    this.handleReset = this.handleReset.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
   }
 
@@ -21,7 +21,6 @@ class SearchBar extends React.Component {
 
   handleInput(e) {
     e.preventDefault();
-    console.log(this.state.query);
     this.setState({ query: e.target.value }, () => {
       if (this.state.query.length >= 3) {
         this.props.fetchAllResults(this.state.query);
@@ -29,10 +28,10 @@ class SearchBar extends React.Component {
     });
   }
 
-  handleReset(e) {
-    e.preventDefault();
-    this.setState({ query: "" }, console.log(this.state.query));
+  handleClick(url) {
+    this.setState({ query: "" });
     this.props.resetResults();
+    this.props.history.push(url);
   }
 
   generateList(items, type) {
@@ -43,31 +42,25 @@ class SearchBar extends React.Component {
       switch (type) {
         case "pins":
           return (
-            <Link to={`/pin/${item.id}`}>
-              <li key={idx} onClick={this.handleReset}>
-                {photo}
-                <ResponsiveEllipsis
-                  text={item.description}
-                />
-              </li>
-            </Link >
+            <li key={idx} onClick={() => this.handleClick(`/pin/${item.id}`)}>
+              {photo}
+              <ResponsiveEllipsis
+                text={item.description}
+              />
+            </li>
           );
         case "boards":
           return (
-            <Link to={`/${this.props.users[item.userId].username}/${item.title.replace(/\s+/g, '-').toLowerCase()}`}>
-              <li key={idx} onClick={this.handleReset}>
-                <span className="search-board-item">{item.title}</span>
-              </li>
-            </Link>
+            <li key={idx} onClick={() => this.handleClick(`/${this.props.users[item.userId].username}/${item.title.replace(/\s+/g, '-').toLowerCase()}`)}>
+              <span className="search-board-item">{item.title}</span>
+            </li>
           );
         case "users":
           return (
-            <Link to={`/${item.username}`}>
-              <li key={idx} onClick={this.handleReset}>
-                {photo}
-                <span className="search-user-item">{item.username}</span>
-              </li>
-            </Link >
+            <li key={idx} onClick={() => this.handleClick(`/${item.username}`)}>
+              {photo}
+              <span className="search-user-item">{item.username}</span>
+            </li>
           );
         default:
           return null;
@@ -76,7 +69,7 @@ class SearchBar extends React.Component {
 
     return (
       <div className="search-items">
-        <h3 className='search-section-header'>{type.charAt(0).toUpperCase() + type.slice(1)}</h3>
+        <h4 className='search-section-header'>{type.charAt(0).toUpperCase() + type.slice(1)}</h4>
         <ul className='search-section-items'>{listItems}</ul>
       </div>
     );
@@ -100,7 +93,7 @@ class SearchBar extends React.Component {
 
     document.addEventListener("mousedown", e => {
       const dropdown = document.getElementsByClassName('search-dropdown')[0];
-      if (e.target.className === 'search-bar') {
+      if (e.path.includes(dropdown) || e.target.className === 'search-bar') {
         dropdown.style.display = "block";
       } else {
         dropdown.style.display = "none";
@@ -115,10 +108,6 @@ class SearchBar extends React.Component {
       </div>
     );
   }
-
-  // openSearch() {
-  //   if (!this.state.open) this.setState({ open: true });
-  // }
 
   render() {
     return (
@@ -136,4 +125,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

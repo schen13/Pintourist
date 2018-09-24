@@ -145,6 +145,5 @@ The pin form submit buttons check for necessary fields (e.g. photoUrl) and remai
 
 ## Future Features
 * Follows (users and boards)
-* Search Bar
 * Categories for smarter discover feed
-* Improved signup/login background
+* Popup message for successful pin and profile saves
