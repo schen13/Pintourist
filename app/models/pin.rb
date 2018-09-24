@@ -11,6 +11,11 @@
 #
 
 class Pin < ApplicationRecord
+
+  include PgSearch
+  multisearchable :against => :description
+  pg_search_scope :whose_description_contains, against: :description, using: {tsearch: {any_word: true} }
+
   validates :user_id, :url, presence: true
   validates :url, url: true
   # validate :ensure_photo

@@ -14,6 +14,10 @@
 #
 
 class User < ApplicationRecord
+  include PgSearch
+  multisearchable :against => :username
+  pg_search_scope :whose_username_starts_with, against: :username, using: {tsearch: {prefix: true} }
+
   validates :username, :fname, :lname, :email, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, :email, :session_token, uniqueness: true

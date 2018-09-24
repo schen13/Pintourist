@@ -4,11 +4,13 @@ import boardModal from './board_modal_reducer';
 import pinModal from './pin_modal_reducer';
 import pinningModal from './pinning_modal_reducer';
 import loadingReducer from './loading_reducer';
+import searchReducer from './search_reducer';
 
 export default combineReducers({
   signupModal,
   boardModal,
   pinModal,
   pinningModal,
-  loading: loadingReducer
+  loading: loadingReducer,
+  search: searchReducer
 });

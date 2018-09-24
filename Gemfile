@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'validate_url'
 gem 'aws-sdk-s3', require: false
+gem 'pg_search'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

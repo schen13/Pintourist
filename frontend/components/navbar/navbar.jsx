@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from './dropdown';
+import SearchBarContainer from './searchbar_container'
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -16,14 +18,12 @@ class Navbar extends React.Component {
               <img src={window.logoURL} alt="logo" />
             </Link>
           </nav>
+          <SearchBarContainer />
           <nav className="right-nav">
             <ul>
               <li className="nav-home">
                 <Link to="/">Home</Link>
               </li>
-              <li className="nav-following">
-                Following
-            </li>
               <li className="nav-profile">
                 <Link to={`/${currentUser.username}`}>
                   {currentUser.fname}
