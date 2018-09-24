@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { selectPinsForBoard } from '../../reducers/selectors';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const BoardIndexItem = ({ board, pins, pinnings, user }) => {
   const titleAsUrl = board.title.replace(/\s+/g, '-').toLowerCase();
@@ -15,7 +16,9 @@ const BoardIndexItem = ({ board, pins, pinnings, user }) => {
       <div className="board-index-item">
         {pinPhoto}
         <div className="board-title-link">
-          {board.title}
+          <LinesEllipsis
+            text={board.title}
+          />
         </div>
       </div>
     </Link>

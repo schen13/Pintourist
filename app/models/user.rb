@@ -28,6 +28,7 @@ class User < ApplicationRecord
   has_many :created_pins,
     foreign_key: :user_id,
     class_name: :Pin
+  has_one_attached :photo
 
   attr_reader :password
 

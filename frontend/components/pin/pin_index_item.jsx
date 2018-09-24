@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import LinesEllipsis from 'react-lines-ellipsis';
+
 class PinIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -31,6 +33,12 @@ class PinIndexItem extends React.Component {
             {splitURL[1].concat('.', splitURL[2])}
           </div>
         </a>
+        <div className="pin-item-description">
+          <LinesEllipsis
+            text={pin.description}
+            maxLine='2'
+          />
+        </div>
       </div>
     );
   }

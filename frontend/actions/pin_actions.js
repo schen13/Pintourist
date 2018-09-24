@@ -5,6 +5,12 @@ export const RECEIVE_SINGLE_PIN = 'RECEIVE_SINGLE_PIN';
 export const REMOVE_PIN = 'REMOVE_PIN';
 export const RECEIVE_PIN_ERRORS = 'RECEIVE_PIN_ERRORS';
 export const REMOVE_PIN_ERRORS = 'REMOVE_PIN_ERRORS';
+export const LOAD_PIN = 'LOAD_PIN';
+
+export const loadPin = loadedPin => ({
+  type: LOAD_PIN,
+  loadedPin
+});
 
 export const fetchAllPins = () => dispatch => (
   PinAPIUtil.fetchAllPins().then(

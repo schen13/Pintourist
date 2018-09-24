@@ -4,7 +4,11 @@ import BoardDetail from './board_detail';
 import { withRouter } from 'react-router-dom';
 import { fetchSingleBoard } from '../../actions/board_actions';
 import { fetchAllPins } from '../../actions/pin_actions';
-import { openBoardModal, openPinDetailModal } from '../../actions/modal_actions';
+import {
+  openBoardModal,
+  openPinModal,
+  openPinDetailModal
+} from '../../actions/modal_actions';
 
 const mapStateToProps = ({ entities: { boards, pins, pinnings, users }, boardMapping }, ownProps) => {
   const board = boards[boardMapping[ownProps.match.params.boardTitle]];
@@ -19,6 +23,11 @@ const mapStateToProps = ({ entities: { boards, pins, pinnings, users }, boardMap
 const mapDispatchToProps = dispatch => ({
   fetchSingleBoard: id => dispatch(fetchSingleBoard(id)),
   fetchAllPins: () => dispatch(fetchAllPins()),
+  openPinModal: (
+    <div className="create-pin-button" onClick={() => dispatch(openPinModal('create'))}>
+      <i className="fas fa-plus"></i>
+    </div>
+  ),
   openBoardModal: (
     <div
       className="edit-board-modal-container"

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const UserInfo = ({ user }) => {
+  const profPic = user.photoUrl ? <img src={user.photoUrl} /> : <i className="fas fa-user-circle"></i>;
   return (
     <div className="user-info-container">
       <div className="user-info">
@@ -9,7 +10,7 @@ const UserInfo = ({ user }) => {
         </h3>
       </div>
       <div className="profile-pic">
-        <i className="fas fa-user-circle"></i>
+        {profPic}
       </div>
     </div>
   );

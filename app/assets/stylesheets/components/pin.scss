@@ -18,8 +18,9 @@ $pin-detail-width: 600px;
 }
 
 .pin-detail-background {
-  display: flex;
-  flex: 1 1 auto;
+  display: block;
+  overflow: auto;
+  min-height: 100%;
   background: $lighter-gray;
   z-index: 5;
   &:hover {
@@ -34,7 +35,7 @@ $pin-detail-width: 600px;
     border-radius: 20px;
     z-index: 8;
 
-    position: absolute;
+    position: fixed;
     top: 15px;
     left: 20px;
     font-size: 18px;
@@ -53,13 +54,9 @@ $pin-detail-width: 600px;
     }
   }
   .pin-info-container {
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin: auto;
+    margin: 30px auto;
     padding: 10px;
-    height: auto;
+    width: 600px;
     &:hover {
       cursor: auto
     }
@@ -83,7 +80,7 @@ $pin-detail-width: 600px;
       display: flex;
       flex-flow: column;
       width: 100%;
-      padding: 20px 5px 20px 5px;
+      padding: 10px 5px 10px 5px;
       font-size: 20px;
       vertical-align: middle;
       .pin-text {

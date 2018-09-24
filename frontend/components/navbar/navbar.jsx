@@ -8,14 +8,6 @@ class Navbar extends React.Component {
 
   render() {
     const { currentUser, logout, openPinModal } = this.props;
-    const options = [
-      <button className="edit-profile-button">
-        Edit Profile
-      </button>,
-      <button className="logout-button" onClick={logout}>
-        Log Out
-      </button>
-    ];
     return (
       <div className="navbar-background">
         <header className="nav-bar">
@@ -43,7 +35,7 @@ class Navbar extends React.Component {
                 </a>
               </li>
               <li className="dropdown">
-                <Dropdown options={options} />
+                <Dropdown logout={logout} />
               </li>
             </ul>
           </nav>

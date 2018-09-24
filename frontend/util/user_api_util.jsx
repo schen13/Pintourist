@@ -12,3 +12,12 @@ export const fetchDesiredUser = id => (
   })
 );
 
+export const updateUser = (user, id) => (
+  $.ajax({
+    method: 'PATCH',
+    url: `api/users/${id}`,
+    data: user,
+    contentType: false,
+    processData: false
+  })
+);

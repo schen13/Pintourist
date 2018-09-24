@@ -1,6 +1,7 @@
 import React from 'react';
 import { selectBoardIdFromBoardTitle } from '../../reducers/selectors';
 import { selectBoardsForUser } from '../../reducers/selectors';
+
 class CreatePinning extends React.Component {
   constructor(props) {
     super(props);

@@ -2,13 +2,12 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import SyncLoader from 'react-spinners/SyncLoader';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 class DiscoverFeed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loadedPins: []
-    };
+    this.state = this.props.loadedPins;
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -17,10 +16,14 @@ class DiscoverFeed extends React.Component {
       .then(() => this.props.fetchAllUsers());
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.loadedPins !== prevProps.loadedPins) {
+      this.setState(this.props.loadedPins);
+    }
+  }
+
   onLoad(pin) {
-    this.setState(({ loadedPins }) => {
-      return { loadedPins: loadedPins.concat(pin) };
-    });
+    this.props.loadPin(pin);
   }
 
   handleClick(pinId) {
@@ -43,10 +46,17 @@ class DiscoverFeed extends React.Component {
           onClick={this.handleClick(pin.id)}>
           <i className="fas fa-thumbtack"></i>
           Save
-              </button>
+        </button>
+        <div className="pin-item-description">
+          <LinesEllipsis
+            text={pin.description}
+            maxLine='2'
+          />
+        </div>
       </div>
     );
     const feedLoading = pinArray.length > this.state.loadedPins.length;
+    const alreadyLoaded = pinArray.length === this.props.loadedPins.loadedPins.length;
 
     return (
       <div className="masonry">
@@ -71,16 +81,17 @@ class DiscoverFeed extends React.Component {
             </div>
           </div>
         }
-        <div className="hidden">
-          {pinArray.map(pin =>
-            <img
-              src={pin.photoUrl}
-              onLoad={this.onLoad.bind(this, pin)}
-              key={pin.id}
-            />
-          )}
-        </div>
-
+        {!alreadyLoaded &&
+          <div className="hidden">
+            {pinArray.map(pin =>
+              <img
+                src={pin.photoUrl}
+                onLoad={this.onLoad.bind(this, pin)}
+                key={pin.id}
+              />
+            )}
+          </div>
+        }
       </div>
     );
   }

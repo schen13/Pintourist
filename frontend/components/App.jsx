@@ -10,6 +10,7 @@ import PinDetailContainer from './pin/pin_detail_container';
 import BoardModal from './modal/board_modal';
 import PinModal from './modal/pin_modal';
 import PinningModal from './modal/pinning_modal';
+import EditProfileFormContainer from './profile/edit_profile_form_container';
 
 const App = () => (
   <div className="webpage">
@@ -20,6 +21,7 @@ const App = () => (
     <ProtectedRoute path="/" component={NavbarContainer} />
     <Switch>
       <ProtectedRoute exact path="/pin/:pinId" component={PinDetailContainer} />
+      <ProtectedRoute exact path="/account" component={EditProfileFormContainer} />
       <ProtectedRoute exact path="/:username" component={ProfileContainer} />
       <ProtectedRoute exact path="/:username/:boardTitle" component={BoardDetailContainer} />
       <ProtectedRoute exact path="/" component={DiscoverFeedContainer} />

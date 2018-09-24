@@ -1,5 +1,5 @@
 .profile-container {
-  margin-top: 75px;
+  margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
   flex-flow: column;
@@ -21,12 +21,17 @@
     font-size: 28px;
   }
   .profile-pic {
+    img {
+      object-fit: cover;
+      border-radius: 50%;
+      height: 150px;
+      width: 150px;
+    }
     i {
       font-size: 75px;
       color: $light-blue;
     }
   }
-  
 }
 
 .profile-tabs-container {
@@ -264,6 +269,13 @@
   }
 }
 
+.pin-item-description {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 10px;
+    color: $charcoal;
+  }
+
 .masonry-pin {
   margin: 0px;
 }
@@ -296,3 +308,78 @@
   }
 }
 
+.profile-form-container {
+  margin: 0 auto;
+  .profile-form-header {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  .profile-form {
+    padding: 5px;
+  }
+  input[class^="profile-input"] {
+    border-radius: 5px;
+    border: 1px solid $gray;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 18px;
+    width: 250px;
+    text-align: left;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    &:focus {
+      box-shadow: 0 0 6px 2px rgba(81, 203, 238, 1);
+    }
+  }
+
+  .profile-input-error {
+    box-shadow: 0 0 6px 2px rgba(255, 0, 0, 0.7);
+  }
+
+  .profile-error {
+    font-size: 12px;
+    width: $input-width;
+    margin: 0 auto;
+    padding: 5px;
+    padding-bottom: 10px;
+    text-align: left;
+    color: red;
+  }
+
+  .profile-error-none {
+    width: 0px;
+    height: 0px;
+    display: none;
+  }
+
+  .profile-image-container {
+    div {
+      margin: 10px 0;
+    }
+    img {
+      object-fit: cover;
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+      margin: 10px 0;
+    }
+  }
+  .profile-submit {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: $light-blue;
+    border-radius: 5px;
+    padding: 10px;
+    &:disabled {
+      background-color: $light-gray;
+      color: $gray;
+      &:hover {
+        box-shadow: none;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

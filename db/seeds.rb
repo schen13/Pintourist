@@ -34,9 +34,9 @@ user3 = User.create!(
 )
 user4 = User.create!(
   username: "seven_wonders",
-  fname: "Stevie",
-  lname: "Wonder",
-  email: "stevie.wonder@travel.io",
+  fname: "Diana",
+  lname: "Prince",
+  email: "wonder.woman@travel.io",
   password: "lifeiswonderful"
 )
 

@@ -20,6 +20,7 @@ class BoardDetail extends React.Component {
       pins,
       pinnings,
       user,
+      openPinModal,
       openBoardModal,
       openPinDetailModal,
     } = this.props;
@@ -29,10 +30,11 @@ class BoardDetail extends React.Component {
       <div className="board-detail-container">
         <div className="board-info-container">
           <div className="board-info-buttons">
+            {openPinModal}
+            {openBoardModal}
             <div className="board-upload-icon">
               <i className="fas fa-upload"></i>
             </div>
-            {openBoardModal}
             <div className="board-ellipsis-icon">
               <i className="fas fa-ellipsis-h"></i>
             </div>
@@ -44,6 +46,9 @@ class BoardDetail extends React.Component {
               </div>
               <div className="board-pin-count">
                 {pinCount}
+              </div>
+              <div className="board-info-description">
+                {board.description}
               </div>
             </div>
             <div className="profile-pic">
