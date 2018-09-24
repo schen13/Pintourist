@@ -15,7 +15,8 @@ class PinIndexItem extends React.Component {
 
   render() {
     const { pin } = this.props;
-    const splitURL = pin.url.split('/')[2].split('.');
+    // const parser = document.createElement('a');
+    // parser.href = pin.url;
     return (
       <div key={pin.id} className="pin">
         <Link to={`/pin/${pin.id}`}>
@@ -27,12 +28,12 @@ class PinIndexItem extends React.Component {
           <i className="fas fa-thumbtack"></i>
           Save
         </button>
-        <a href={pin.url}>
+        {/* <a href={pin.url}>
           <div className="pin-url-small">
             <i className="fas fa-location-arrow"></i>
-            {splitURL[1].concat('.', splitURL[2])}
+            {parser.hostname}
           </div>
-        </a>
+        </a> */}
         <div className="pin-item-description">
           <LinesEllipsis
             text={pin.description}

@@ -35,7 +35,12 @@ class PinDetail extends React.Component {
           </div>
         </Link>;
     }
-    const splitURL = pin.url.split('/')[2].split('.');
+    const parser = document.createElement('a');
+    parser.href = pin.url;
+    let hostname = parser.hostname;
+    if (hostname.includes("www.")) {
+      hostname = hostname.slice(4);
+    }
     return (
       <div className="pin-detail-background"
         onClick={this.routeToProfile}>
@@ -70,7 +75,7 @@ class PinDetail extends React.Component {
                 <a href={pin.url}>
                   <div className="pin-url">
                     <i className="fas fa-location-arrow"></i>
-                    {splitURL[1].concat('.', splitURL[2])}
+                    {hostname}
                   </div>
                 </a>
               </div>

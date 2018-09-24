@@ -1,0 +1,29 @@
+$notification-width: 320px;
+
+$rt-color-default: #fff !default;
+$rt-color-info: #3498db !default;
+$rt-color-success: #07bc0c !default;
+$rt-color-warning: #f1c40f !default;
+$rt-color-error: #e74c3c !default;
+
+$rt-color-progress-default: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55) !default;
+
+.notification-container {
+    z-index: 9999;
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    margin-left: -($notification-width / 2);
+
+    width: $notification-width;
+    box-sizing: border-box;
+    min-height: 50px;
+    border-radius: 5px;
+    padding: 5px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $light-blue;
+    color: #fff;
+}

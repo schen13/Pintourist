@@ -15,7 +15,7 @@
     "lodash": "^4.17.10",
     "react": "^16.4.2",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-dom": "^16.4.2",
+    "react-dom": "^16.5.2",
     "react-dropzone": "^4.3.0",
     "react-lines-ellipsis": "^0.13.2",
     "react-modal": "^3.5.1",

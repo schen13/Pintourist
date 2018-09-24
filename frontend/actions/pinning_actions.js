@@ -1,4 +1,5 @@
 import * as PinningAPIUtil from '../util/pinning_api_util';
+import { openNotification, closeNotification } from '../actions/notification_actions';
 
 export const RECEIVE_ALL_PINNINGS = 'RECEIVE_ALL_PINNINGS';
 export const RECEIVE_SINGLE_PINNING = 'RECEIVE_SINGLE_PINNING';
@@ -12,7 +13,15 @@ export const fetchAllPinnings = () => dispatch => (
 
 export const createPinning = pinning => dispatch => (
   PinningAPIUtil.createPinning(pinning).then(
-    res => dispatch(receiveSinglePinning(res))
+    res => {
+      dispatch(receiveSinglePinning(res));
+      dispatch(openNotification("Pin Saved!"));
+      setTimeout(() => dispatch(closeNotification()), 3000);
+    },
+    err => {
+      dispatch(openNotification("Already saved to this board."));
+      setTimeout(() => dispatch(closeNotification()), 3000);
+    }
   )
 );
 

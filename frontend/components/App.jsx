@@ -11,12 +11,14 @@ import BoardModal from './modal/board_modal';
 import PinModal from './modal/pin_modal';
 import PinningModal from './modal/pinning_modal';
 import EditProfileFormContainer from './profile/edit_profile_form_container';
+import Notification from './notification';
 
 const App = () => (
   <div className="webpage">
     <BoardModal />
     <PinModal />
     <PinningModal />
+    <Notification />
     <AuthRoute path="/signup" component={SignupModal} />
     <ProtectedRoute path="/" component={NavbarContainer} />
     <Switch>

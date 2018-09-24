@@ -1,4 +1,5 @@
 import * as UserAPIUtil from '../util/user_api_util';
+import { openNotification, closeNotification } from '../actions/notification_actions';
 
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_DESIRED_USER = 'RECEIVE_DESIRED_USER';
@@ -17,7 +18,11 @@ export const fetchDesiredUser = id => dispatch => (
 
 export const updateUser = (user, id) => dispatch => (
   UserAPIUtil.updateUser(user, id).then(
-    updatedUser => dispatch(receiveDesiredUser(updatedUser)),
+    updatedUser => {
+      dispatch(receiveDesiredUser(updatedUser));
+      dispatch(openNotification("Settings Saved!"));
+      setTimeout(() => dispatch(closeNotification()), 3000);
+    },
     errors => dispatch(receiveUserErrors(errors.responseJSON)))
 );
 
