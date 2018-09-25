@@ -23,17 +23,22 @@
 }
 
 .left-nav {
-  margin-left: 10px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  img {
-    height: 50px;
+  display: flex;
+  align-items: center;
+  width: 60%;
+  .nav-logo-container {
     width: 50px;
-    padding: 10px;
-  }
-  &:hover {
-    background-color: $light-gray;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+    img {
+      height: 50px;
+      width: 50px;
+      padding: 10px;
+    }
+    &:hover {
+      background-color: $light-gray;
+    }
   }
 }
 
@@ -53,6 +58,17 @@
       cursor: pointer;
       &:hover {
         background-color: $light-gray;
+      }
+    }
+    .nav-profile {
+      display: flex;
+      align-items: center;
+      img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 5px;
       }
     }
   }
@@ -133,8 +149,11 @@ li[class^="dropdown-option"] {
 
 .search-bar-container {
   position: relative;
-  width: 800px;
+  width: 100%;
   min-width: 250px;
+  .search-bar {
+    background-color: $lighter-gray;
+  }
   .search-dropdown {
     z-index: 10;
     position: absolute;

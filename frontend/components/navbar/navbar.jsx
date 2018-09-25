@@ -14,17 +14,21 @@ class Navbar extends React.Component {
       <div className="navbar-background">
         <header className="nav-bar">
           <nav className="left-nav">
-            <Link to="/">
-              <img src={window.logoURL} alt="logo" />
-            </Link>
+            <div className="nav-logo-container">
+              <Link to="/">
+                <img src={window.logoURL} alt="logo" />
+              </Link>
+            </div>
+            <SearchBarContainer />
           </nav>
-          <SearchBarContainer />
+
           <nav className="right-nav">
             <ul>
               <li className="nav-home">
                 <Link to="/">Home</Link>
               </li>
               <li className="nav-profile">
+                <img src={currentUser.photoUrl} />
                 <Link to={`/${currentUser.username}`}>
                   {currentUser.fname}
                 </Link>
