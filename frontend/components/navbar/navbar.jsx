@@ -10,6 +10,7 @@ class Navbar extends React.Component {
 
   render() {
     const { currentUser, logout, openPinModal } = this.props;
+    const profPic = currentUser.photoUrl ? <img src={currentUser.photoUrl} /> : null;
     return (
       <div className="navbar-background">
         <header className="nav-bar">
@@ -28,7 +29,7 @@ class Navbar extends React.Component {
                 <Link to="/">Home</Link>
               </li>
               <li className="nav-profile">
-                <img src={currentUser.photoUrl} />
+                {profPic}
                 <Link to={`/${currentUser.username}`}>
                   {currentUser.fname}
                 </Link>
