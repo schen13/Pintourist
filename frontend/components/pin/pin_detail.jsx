@@ -65,14 +65,14 @@ class PinDetail extends React.Component {
 
           <div className="pin-body">
             <div className="pin-pic">
-              <a href={pin.url}>
+              <a href={pin.url} target="_blank">
                 <img src={pin.photoUrl}></img>
               </a>
             </div>
             <div className="pin-info">
               <div className="pin-text">
                 {pinOwnerName}
-                <a href={pin.url}>
+                <a href={pin.url} target="_blank">
                   <div className="pin-url">
                     <i className="fas fa-location-arrow"></i>
                     {hostname}
