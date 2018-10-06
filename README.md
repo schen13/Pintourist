@@ -1,8 +1,6 @@
 # Pintourist
 
-[Live Demo][heroku]
-
-[heroku]: www.pintourist.co
+[Pintourist Live](http://www.pintourist.co)
 
 Welcome to Pintourist! Discover a world you never knew you needed to explore, until now.
 This website, as the name suggests, is inspired by Pinterest and makes use of a Rails/PostgreSQL backend with React/Redux frontend.
@@ -137,11 +135,11 @@ const disabled =
 The pin form submit buttons check for necessary fields (e.g. photoUrl) and remain disabled if the user has not uploaded a photo. This prevents users from making erroneous form submissions. The edit pin button is also disabled if the current user is not the owner of the pin.
 
 ### Additional Resources
-+ [MVP List](MVP-List)
-+ [Database Schema](Database-Schema)
-+ [Sample State](Sample-State)
-+ [Frontend Routes and Components](Frontend-Routes-and-Components)
-+ [Backend Routes](Backend-Routes)
++ [MVP List](https://github.com/schen13/Pintourist/wiki/MVP-List)
++ [Database Schema](https://github.com/schen13/Pintourist/wiki/Database-Schema)
++ [Sample State](https://github.com/schen13/Pintourist/wiki/Sample-State)
++ [Frontend Routes and Components](https://github.com/schen13/Pintourist/wiki/Frontend-Routes-and-Components)
++ [Backend Routes](https://github.com/schen13/Pintourist/wiki/Backend-Routes)
 
 ## Future Features
 * Follows (users and boards)
